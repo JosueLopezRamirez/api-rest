@@ -1,7 +1,8 @@
-package com.darkcode.apirest.models.services;
+package com.darkcode.apirest.models.services.implement;
 
 import com.darkcode.apirest.models.dao.IPersonaDao;
 import com.darkcode.apirest.models.entity.Persona;
+import com.darkcode.apirest.models.services.services.IPersonaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

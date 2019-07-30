@@ -43,11 +43,18 @@ public class Grupo implements Serializable {
 		NombreGrupo = nombreGrupo;
 	}
 
+	public Organizacion getOrganizacion() {
+		return organizacion;
+	}
+
+	public void setOrganizacion(Organizacion organizacion) {
+		this.organizacion = organizacion;
+	}
+
 	public Grupo() {}
 
-	public Grupo(Long id, String nombreGrupo) {
-		super();
-		this.id = id;
-		NombreGrupo = nombreGrupo;
+	public Grupo(String nombreGrupo, Organizacion organizacion) {
+		this.NombreGrupo = nombreGrupo;
+		this.organizacion = organizacion;
 	}
 }

@@ -3,7 +3,7 @@ package com.darkcode.apirest.models.controllers;
 import java.util.List;
 
 import com.darkcode.apirest.models.entity.PlanPago;
-import com.darkcode.apirest.models.services.IPlanPagoService;
+import com.darkcode.apirest.models.services.services.IPlanPagoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.darkcode.apirest.models.entity.Usuario;
 import com.darkcode.apirest.models.entity.petitions.Users;
-import com.darkcode.apirest.models.services.IUsuarioService;
+import com.darkcode.apirest.models.services.services.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping("/api")
-public class UsuarioController {
+public class UsuarioRestController {
 	
 	@Autowired
 	private IUsuarioService usuarioService;

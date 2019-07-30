@@ -1,4 +1,4 @@
-package com.darkcode.apirest.models.services;
+package com.darkcode.apirest.models.services.implement;
 
 import java.util.List;
 
@@ -7,12 +7,13 @@ import com.darkcode.apirest.models.dao.IUsuarioDao;
 import com.darkcode.apirest.models.entity.Empleado;
 import com.darkcode.apirest.models.entity.Usuario;
 import com.darkcode.apirest.models.entity.petitions.Users;
+import com.darkcode.apirest.models.services.services.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class UsuarioServiceImplement implements IUsuarioService{
+public class UsuarioServiceImplement implements IUsuarioService {
 
 	@Autowired
 	private IUsuarioDao usuarioDao;

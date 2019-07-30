@@ -36,6 +36,9 @@ public class Cliente implements Serializable {
 	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
 	private List<Telefono> telefono;
 
+	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+	private List<Correo> correo;
+
 	public Long getId() {
 		return id;
 	}
@@ -68,15 +71,30 @@ public class Cliente implements Serializable {
 		this.persona = persona;
 	}
 
+	public List<Telefono> getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(List<Telefono> telefono) {
+		this.telefono = telefono;
+	}
+
+	public List<Correo> getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(List<Correo> correo) {
+		this.correo = correo;
+	}
+
 	// Constructor
 	public Cliente() {}
 
-	public Cliente(Long id, String direccion, String cedula, Persona persona, List<Telefono> telefono) {
-		super();
-		this.id = id;
+	public Cliente(String direccion, String cedula, Persona persona, List<Telefono> telefono, List<Correo> correo) {
 		Direccion = direccion;
 		Cedula = cedula;
 		this.persona = persona;
 		this.telefono = telefono;
+		this.correo = correo;
 	}
 }
