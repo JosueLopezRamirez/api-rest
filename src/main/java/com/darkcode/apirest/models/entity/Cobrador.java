@@ -22,7 +22,7 @@ public class Cobrador implements Serializable {
 	@Column(name = "id")
 	private Long id;
 
-	@OneToOne(cascade = CascadeType.ALL, optional = false)
+	@OneToOne
 	private Empleado empleado;
 
 	public Long getId() {

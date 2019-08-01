@@ -10,8 +10,8 @@ import com.darkcode.apirest.models.entity.petitions.Users;
 
 public interface IUsuarioDao extends CrudRepository<Usuario, Long>{
 
-    //@Query("select u from Usuario u join fetch u.empleado e join fetch e.persona p where u.id = ?1")
-    //public Usuario fecthByIdWithEmpleadoWithPersona(Long Id);
+    //@Query(value = "select distinct u.username,u.password,e.salario,p.Nombre,p.Apellido from Usuario u inner join empleado e on u.empleado_id = e.id inner join persona p on e.persona_id = p.id",nativeQuery = true)
+    //public List<Object> fecthByIdWithEmpleadoWithPersona();
 
 	@Query(value = "SELECT new com.darkcode.apirest.models.entity.petitions.Users(u.id,u.username, u.password,u.empleado.id, u.categoria) from Usuario u")
 	public List<Users> findAllUsers();

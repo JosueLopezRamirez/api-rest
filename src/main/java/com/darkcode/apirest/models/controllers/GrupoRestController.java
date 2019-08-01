@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.swing.*;
 import java.util.List;
 
 @SuppressWarnings("ALL")
@@ -26,7 +27,7 @@ public class GrupoRestController {
 
     @PostMapping("/grupos")
     @ResponseStatus(HttpStatus.CREATED)
-    public Grupo create(Group group){
+    public Grupo create(@RequestBody Group group){
         Grupo grupo = new Grupo();
         grupo.setNombreGrupo(group.getNombreGrupo());
         grupo.setOrganizacion(grupoService.findOrganizationById(group.getOrganizacion_id()));

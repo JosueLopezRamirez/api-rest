@@ -23,10 +23,10 @@ public class Asesor implements Serializable {
 	@Column(name = "id")
 	private Long id;
 
-	@OneToOne(cascade = CascadeType.ALL, optional = false)
+	@OneToOne
 	private Empleado empleado;
 
-	@ManyToOne(cascade = CascadeType.ALL, optional = false)
+	@ManyToOne(optional = false)
 	private Grupo grupo;
 
 	public Long getId() {
@@ -61,5 +61,4 @@ public class Asesor implements Serializable {
 		this.empleado = empleado;
 		this.grupo = grupo;
 	}
-
 }

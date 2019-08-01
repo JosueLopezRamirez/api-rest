@@ -8,6 +8,8 @@ import com.darkcode.apirest.models.entity.petitions.Users;
 
 public interface IUsuarioService {
 
+	//public List<Object> fecthByIdWithEmpleadoWithPersona();
+
 	public List<Users> findAllUsers();
 
     public List<Usuario> findAll();

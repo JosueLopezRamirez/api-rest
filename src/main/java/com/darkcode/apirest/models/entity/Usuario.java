@@ -2,14 +2,7 @@ package com.darkcode.apirest.models.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "usuario")
@@ -22,7 +15,7 @@ public class Usuario implements Serializable{
 	@Column(name = "id")
 	private long id;
 	
-	@OneToOne(cascade = CascadeType.ALL, optional = false)
+	@OneToOne(fetch = FetchType.EAGER)
 	private Empleado empleado;
 	
 	@Column(name = "username", length = 50, insertable = true, updatable = false, nullable = false)

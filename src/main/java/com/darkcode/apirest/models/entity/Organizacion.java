@@ -13,10 +13,11 @@ public class Organizacion implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Long id;
 
 	@Column(name = "nombreOrganizacion", length = 50, insertable = true, updatable = true, nullable = false)
-	private String NombreOrganizacion;
+	private String nombreOrganizacion;
 
 	public Long getId() {
 		return id;
@@ -27,18 +28,17 @@ public class Organizacion implements Serializable {
 	}
 
 	public String getNombreOrganizacion() {
-		return NombreOrganizacion;
+		return nombreOrganizacion;
 	}
 
 	public void setNombreOrganizacion(String nombreOrganizacion) {
-		NombreOrganizacion = nombreOrganizacion;
+		this.nombreOrganizacion = nombreOrganizacion;
 	}
 
 	public Organizacion() {}
 
-	public Organizacion(Long id, String nombreOrganizacion) {
-		super();
+	public Organizacion(Long id,String nombreOrganizacion) {
 		this.id = id;
-		NombreOrganizacion = nombreOrganizacion;
+		this.nombreOrganizacion = nombreOrganizacion;
 	}
 }

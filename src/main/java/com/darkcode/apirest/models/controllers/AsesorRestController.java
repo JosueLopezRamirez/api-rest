@@ -30,7 +30,7 @@ public class AsesorRestController {
 
     @PostMapping("/asesores")
     @ResponseStatus(HttpStatus.CREATED)
-    public Asesor create(Adviser adviser){
+    public Asesor create(@RequestBody Adviser adviser){
         Asesor asesor = new Asesor();
         asesor.setEmpleado(asesorService.findEmployeeById(adviser.getEmpleado_id()));
         asesor.setGrupo(asesorService.findGroupById(adviser.getGrupo_id()));

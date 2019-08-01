@@ -2,7 +2,6 @@ package com.darkcode.apirest.models.entity;
 
 import java.io.Serializable;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +21,7 @@ public class Empleado implements Serializable {
 	@Column(name = "id")
 	private long id;
 
-	@OneToOne(cascade = CascadeType.ALL, optional = false)
+	@OneToOne
 	private Persona persona;
 
 	@Column(name = "salario", insertable = true, updatable = true)

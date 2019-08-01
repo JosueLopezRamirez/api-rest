@@ -30,7 +30,7 @@ public class CobradorRestController {
 
     @PostMapping("/cobradores")
     @ResponseStatus(HttpStatus.CREATED)
-    public Cobrador create(Collector collector){
+    public Cobrador create(@RequestBody Collector collector){
         Cobrador cobrador = new Cobrador();
         cobrador.setEmpleado(cobradorService.findEmployeeById(collector.getEmpleado_id()));
         return cobradorService.save(cobrador);
