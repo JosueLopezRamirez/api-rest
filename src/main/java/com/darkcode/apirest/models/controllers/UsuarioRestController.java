@@ -1,7 +1,6 @@
 package com.darkcode.apirest.models.controllers;
 
-import java.util.List;
-
+import com.darkcode.apirest.ApiRestApplication;
 import com.darkcode.apirest.models.entity.Usuario;
 import com.darkcode.apirest.models.entity.petitions.Users;
 import com.darkcode.apirest.models.services.services.IUsuarioService;
@@ -9,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @SuppressWarnings("ALL")
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {ApiRestApplication.FrontEnd})
 @RestController
 @RequestMapping("/api")
 public class UsuarioRestController {

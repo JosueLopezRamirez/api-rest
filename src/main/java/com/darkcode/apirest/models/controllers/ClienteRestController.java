@@ -1,5 +1,6 @@
 package com.darkcode.apirest.models.controllers;
 
+import com.darkcode.apirest.ApiRestApplication;
 import com.darkcode.apirest.models.entity.Cliente;
 import com.darkcode.apirest.models.entity.petitions.Client;
 import com.darkcode.apirest.models.services.services.IClienteService;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {ApiRestApplication.FrontEnd})
 @RestController
 @RequestMapping("/api")
 public class ClienteRestController {
