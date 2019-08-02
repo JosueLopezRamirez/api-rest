@@ -29,7 +29,7 @@ public class ClienteRestController {
         Cliente cliente = new Cliente();
         cliente.setCedula(client.getCedula());
         cliente.setDireccion(client.getDireccion());
-        cliente.setPersona(clienteService.findPersonById(client.getId()));
+        cliente.setPersona(clienteService.findPersonById(client.getPersona_id()));
         return clienteService.save(cliente);
     }
 

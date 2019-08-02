@@ -1,17 +1,7 @@
 package com.darkcode.apirest.models.entity;
 
+import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "cliente")
@@ -32,12 +22,6 @@ public class Cliente implements Serializable {
 
 	@OneToOne(cascade = CascadeType.ALL, optional = false)
 	private Persona persona;
-
-	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
-	private List<Telefono> telefono;
-
-	@OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
-	private List<Correo> correo;
 
 	public Long getId() {
 		return id;
@@ -71,30 +55,12 @@ public class Cliente implements Serializable {
 		this.persona = persona;
 	}
 
-	public List<Telefono> getTelefono() {
-		return telefono;
-	}
-
-	public void setTelefono(List<Telefono> telefono) {
-		this.telefono = telefono;
-	}
-
-	public List<Correo> getCorreo() {
-		return correo;
-	}
-
-	public void setCorreo(List<Correo> correo) {
-		this.correo = correo;
-	}
-
 	// Constructor
 	public Cliente() {}
 
-	public Cliente(String direccion, String cedula, Persona persona, List<Telefono> telefono, List<Correo> correo) {
+	public Cliente(String direccion, String cedula, Persona persona) {
 		Direccion = direccion;
 		Cedula = cedula;
 		this.persona = persona;
-		this.telefono = telefono;
-		this.correo = correo;
 	}
 }

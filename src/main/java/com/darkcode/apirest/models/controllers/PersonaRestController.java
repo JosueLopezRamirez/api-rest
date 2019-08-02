@@ -17,9 +17,7 @@ public class PersonaRestController {
     private IPersonaService personaService;
 
     @GetMapping("/persons")
-    public List<Persona> select() {
-        return personaService.findAll();
-    }
+    public List<Persona> select() { return personaService.findAll(); }
 
     @GetMapping("/persons/{id}")
     public Persona show(@PathVariable Long id) {
