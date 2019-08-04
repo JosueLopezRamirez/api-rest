@@ -26,7 +26,7 @@ public class Referencia implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL, optional = false)
 	private Persona persona;
 
-	@ManyToOne(cascade = CascadeType.ALL, optional = false)
+	@ManyToOne(optional = false)
 	private Titular titular;
 
 	@Column(name = "telefono", length = 20, insertable = true, updatable = true)

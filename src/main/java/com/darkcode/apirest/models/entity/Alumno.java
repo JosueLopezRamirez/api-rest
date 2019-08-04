@@ -52,7 +52,7 @@ public class Alumno implements Serializable {
 		Nivel = nivel;
 	}
 
-	public boolean isActivo() {
+	public boolean getActivo() {
 		return activo;
 	}
 
