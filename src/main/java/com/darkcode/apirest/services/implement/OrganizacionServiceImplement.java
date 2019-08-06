@@ -1,6 +1,6 @@
 package com.darkcode.apirest.services.implement;
 
-import com.darkcode.apirest.models.dao.IOrganizacionDao;
+import com.darkcode.apirest.models.DAO.IOrganizacionDao;
 import com.darkcode.apirest.models.entity.Organizacion;
 import com.darkcode.apirest.services.services.IOrganizacionService;
 import org.springframework.beans.factory.annotation.Autowired;

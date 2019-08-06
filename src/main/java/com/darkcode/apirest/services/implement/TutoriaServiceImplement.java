@@ -1,6 +1,6 @@
 package com.darkcode.apirest.services.implement;
 
-import com.darkcode.apirest.models.dao.ITutoriaDao;
+import com.darkcode.apirest.models.DAO.ITutoriaDao;
 import com.darkcode.apirest.models.entity.Tutoria;
 import com.darkcode.apirest.services.services.ITutoriaService;
 import org.springframework.beans.factory.annotation.Autowired;

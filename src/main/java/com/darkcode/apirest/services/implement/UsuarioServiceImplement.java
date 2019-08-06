@@ -2,11 +2,11 @@ package com.darkcode.apirest.services.implement;
 
 import java.util.List;
 
-import com.darkcode.apirest.models.dao.IEmpleadoDao;
-import com.darkcode.apirest.models.dao.IUsuarioDao;
+import com.darkcode.apirest.models.DAO.IEmpleadoDao;
+import com.darkcode.apirest.models.DAO.IUsuarioDao;
 import com.darkcode.apirest.models.entity.Empleado;
 import com.darkcode.apirest.models.entity.Usuario;
-import com.darkcode.apirest.models.entity.petitions.Users;
+import com.darkcode.apirest.DTO.UsuarioDTO;
 import com.darkcode.apirest.services.services.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,8 +30,8 @@ public class UsuarioServiceImplement implements IUsuarioService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<Users> findAllUsers() {
-		return (List<Users>) usuarioDao.findAllUsers();
+	public List<UsuarioDTO> findAllUsers() {
+		return (List<UsuarioDTO>) usuarioDao.findAllUsers();
 	}
 
 	@Override

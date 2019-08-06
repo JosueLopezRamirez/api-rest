@@ -1,6 +1,6 @@
 package com.darkcode.apirest.services.implement;
 
-import com.darkcode.apirest.models.dao.IPlanPagoDao;
+import com.darkcode.apirest.models.DAO.IPlanPagoDao;
 import com.darkcode.apirest.models.entity.PlanPago;
 import com.darkcode.apirest.services.services.IPlanPagoService;
 import org.springframework.beans.factory.annotation.Autowired;

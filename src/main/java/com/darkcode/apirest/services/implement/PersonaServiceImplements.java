@@ -1,6 +1,6 @@
 package com.darkcode.apirest.services.implement;
 
-import com.darkcode.apirest.models.dao.IPersonaDao;
+import com.darkcode.apirest.models.DAO.IPersonaDao;
 import com.darkcode.apirest.models.entity.Persona;
 import com.darkcode.apirest.services.services.IPersonaService;
 import org.springframework.beans.factory.annotation.Autowired;

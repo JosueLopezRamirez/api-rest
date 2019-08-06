@@ -2,7 +2,7 @@ package com.darkcode.apirest.controllers;
 
 import com.darkcode.apirest.ApiRestApplication;
 import com.darkcode.apirest.models.entity.Cliente;
-import com.darkcode.apirest.models.entity.petitions.Client;
+import com.darkcode.apirest.DTO.ClienteDTO;
 import com.darkcode.apirest.services.services.IClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,19 +26,19 @@ public class ClienteRestController {
 
     @PostMapping("/clientes")
     @ResponseStatus(HttpStatus.CREATED)
-    public Cliente create(@RequestBody Client client){
+    public Cliente create(@RequestBody ClienteDTO clienteDTO){
         Cliente cliente = new Cliente();
-        cliente.setCedula(client.getCedula());
-        cliente.setDireccion(client.getDireccion());
-        cliente.setPersona(clienteService.findPersonById(client.getPersona_id()));
+        cliente.setCedula(clienteDTO.getCedula());
+        cliente.setDireccion(clienteDTO.getDireccion());
+        cliente.setPersona(clienteService.findPersonById(clienteDTO.getPersona_id()));
         return clienteService.save(cliente);
     }
 
     @PutMapping("/clientes/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Cliente update(@RequestBody Client client,@PathVariable Long id){
+    public Cliente update(@RequestBody ClienteDTO clienteDTO, @PathVariable Long id){
         Cliente clienteActual = clienteService.findById(id);
-        clienteActual.setDireccion(client.getDireccion());
+        clienteActual.setDireccion(clienteDTO.getDireccion());
         return clienteService.save(clienteActual);
     }
 

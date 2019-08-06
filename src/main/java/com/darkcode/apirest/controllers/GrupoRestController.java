@@ -2,7 +2,7 @@ package com.darkcode.apirest.controllers;
 
 import com.darkcode.apirest.ApiRestApplication;
 import com.darkcode.apirest.models.entity.Grupo;
-import com.darkcode.apirest.models.entity.petitions.Group;
+import com.darkcode.apirest.DTO.GrupoDTO;
 import com.darkcode.apirest.services.services.IGrupoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,19 +27,19 @@ public class GrupoRestController {
 
     @PostMapping("/grupos")
     @ResponseStatus(HttpStatus.CREATED)
-    public Grupo create(@RequestBody Group group){
+    public Grupo create(@RequestBody GrupoDTO grupoDTO){
         Grupo grupo = new Grupo();
-        grupo.setNombreGrupo(group.getNombreGrupo());
-        grupo.setOrganizacion(grupoService.findOrganizationById(group.getOrganizacion_id()));
+        grupo.setNombreGrupo(grupoDTO.getNombreGrupo());
+        grupo.setOrganizacion(grupoService.findOrganizationById(grupoDTO.getOrganizacion_id()));
         return grupoService.save(grupo);
     }
 
     @PutMapping("/grupos/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Grupo update(@RequestBody Group group,@PathVariable Long id){
+    public Grupo update(@RequestBody GrupoDTO grupoDTO, @PathVariable Long id){
         Grupo grupoActual = grupoService.findById(id);
-        grupoActual.setNombreGrupo(group.getNombreGrupo());
-        grupoActual.setOrganizacion(grupoService.findOrganizationById(group.getOrganizacion_id()));
+        grupoActual.setNombreGrupo(grupoDTO.getNombreGrupo());
+        grupoActual.setOrganizacion(grupoService.findOrganizationById(grupoDTO.getOrganizacion_id()));
         return grupoService.save(grupoActual);
     }
 

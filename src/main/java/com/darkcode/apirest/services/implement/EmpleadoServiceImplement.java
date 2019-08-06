@@ -1,7 +1,7 @@
 package com.darkcode.apirest.services.implement;
 
-import com.darkcode.apirest.models.dao.IEmpleadoDao;
-import com.darkcode.apirest.models.dao.IPersonaDao;
+import com.darkcode.apirest.models.DAO.IEmpleadoDao;
+import com.darkcode.apirest.models.DAO.IPersonaDao;
 import com.darkcode.apirest.models.entity.Empleado;
 import com.darkcode.apirest.models.entity.Persona;
 import com.darkcode.apirest.services.services.IEmpleadoService;

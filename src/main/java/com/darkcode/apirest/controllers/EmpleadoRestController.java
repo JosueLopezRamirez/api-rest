@@ -2,7 +2,7 @@ package com.darkcode.apirest.controllers;
 
 import com.darkcode.apirest.ApiRestApplication;
 import com.darkcode.apirest.models.entity.Empleado;
-import com.darkcode.apirest.models.entity.petitions.Employee;
+import com.darkcode.apirest.DTO.EmpleadoDTO;
 import com.darkcode.apirest.services.services.IEmpleadoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,26 +31,26 @@ public class EmpleadoRestController {
 
     @PostMapping("/employees")
     @ResponseStatus(HttpStatus.CREATED)
-    public Empleado create(@RequestBody Employee employee) {
+    public Empleado create(@RequestBody EmpleadoDTO empleadoDTO) {
         //Creando usuario temporal y pasando los parametros del user recibido
         Empleado empleado = new Empleado();
-        empleado.setSalario(employee.getSalario());
+        empleado.setSalario(empleadoDTO.getSalario());
         /** Asignandole el objeto empleado completo haciendo uso del IempleadoDao que esta dentro de usuarioService,
          * para pasarle el ultimo usuario empleado ingresado*/
-        empleado.setPersona(empleadoService.findPersonById(employee.getPersona_id()));
+        empleado.setPersona(empleadoService.findPersonById(empleadoDTO.getPersona_id()));
         return empleadoService.save(empleado);
     }
 
     //Metodo para actualizar ciertos campos de un usuairo en la base de datos
     @PutMapping("/employees/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Empleado update(@RequestBody Employee employee, @PathVariable Long id) {
+    public Empleado update(@RequestBody EmpleadoDTO empleadoDTO, @PathVariable Long id) {
         /*
          * Asignando los valores del usuario enviado por el cliente a un objeto temporal
          * esto para luego ser enviado a la base datos
          * */
         Empleado empladoActual = empleadoService.findById(id);
-        empladoActual.setSalario(employee.getSalario());
+        empladoActual.setSalario(empleadoDTO.getSalario());
         //Metodo save del service al tener un id, usara un merge lo cual se traducira a un update a la base de datos
         return empleadoService.save(empladoActual);
     }

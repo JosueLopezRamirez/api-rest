@@ -1,6 +1,6 @@
 package com.darkcode.apirest.services.implement;
 
-import com.darkcode.apirest.models.dao.INivelDao;
+import com.darkcode.apirest.models.DAO.INivelDao;
 import com.darkcode.apirest.models.entity.Nivel;
 import com.darkcode.apirest.services.services.INivelService;
 import org.springframework.beans.factory.annotation.Autowired;

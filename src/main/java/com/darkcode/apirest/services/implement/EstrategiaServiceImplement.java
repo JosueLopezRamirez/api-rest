@@ -1,6 +1,6 @@
 package com.darkcode.apirest.services.implement;
 
-import com.darkcode.apirest.models.dao.IEstrategiaDao;
+import com.darkcode.apirest.models.DAO.IEstrategiaDao;
 import com.darkcode.apirest.models.entity.Estrategia;
 import com.darkcode.apirest.services.services.IEstrategiaService;
 import org.springframework.beans.factory.annotation.Autowired;

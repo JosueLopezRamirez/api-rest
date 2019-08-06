@@ -1,7 +1,7 @@
 package com.darkcode.apirest.services.implement;
 
-import com.darkcode.apirest.models.dao.IGrupoDao;
-import com.darkcode.apirest.models.dao.IOrganizacionDao;
+import com.darkcode.apirest.models.DAO.IGrupoDao;
+import com.darkcode.apirest.models.DAO.IOrganizacionDao;
 import com.darkcode.apirest.models.entity.Grupo;
 import com.darkcode.apirest.models.entity.Organizacion;
 import com.darkcode.apirest.services.services.IGrupoService;

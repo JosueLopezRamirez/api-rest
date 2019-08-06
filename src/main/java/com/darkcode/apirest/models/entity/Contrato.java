@@ -22,13 +22,13 @@ public class Contrato implements Serializable {
 	@EmbeddedId
 	private ContratoId contratoId;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+	@OneToOne(fetch = FetchType.EAGER, optional = false)
 	private Estrategia estrategia;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+	@OneToOne(fetch = FetchType.EAGER, optional = false)
 	private FormaPago formaPago;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
+	@OneToOne(fetch = FetchType.EAGER, optional = false)
 	private PlanPago planPago;
 
 	private Date fechaContrato;
@@ -48,6 +48,30 @@ public class Contrato implements Serializable {
 
 	public void setFechaContrato(Date fechaContrato) {
 		this.fechaContrato = fechaContrato;
+	}
+
+	public Estrategia getEstrategia() {
+		return estrategia;
+	}
+
+	public void setEstrategia(Estrategia estrategia) {
+		this.estrategia = estrategia;
+	}
+
+	public FormaPago getFormaPago() {
+		return formaPago;
+	}
+
+	public void setFormaPago(FormaPago formaPago) {
+		this.formaPago = formaPago;
+	}
+
+	public PlanPago getPlanPago() {
+		return planPago;
+	}
+
+	public void setPlanPago(PlanPago planPago) {
+		this.planPago = planPago;
 	}
 
 	public Contrato() {

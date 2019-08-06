@@ -1,6 +1,6 @@
 package com.darkcode.apirest.services.implement;
 
-import com.darkcode.apirest.models.dao.IFormaDao;
+import com.darkcode.apirest.models.DAO.IFormaDao;
 import com.darkcode.apirest.models.entity.FormaPago;
 import com.darkcode.apirest.services.services.IFormaService;
 import org.springframework.beans.factory.annotation.Autowired;

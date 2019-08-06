@@ -1,7 +1,7 @@
 package com.darkcode.apirest.services.implement;
 
-import com.darkcode.apirest.models.dao.IClienteDao;
-import com.darkcode.apirest.models.dao.ITelefonoDao;
+import com.darkcode.apirest.models.DAO.IClienteDao;
+import com.darkcode.apirest.models.DAO.ITelefonoDao;
 import com.darkcode.apirest.models.entity.Cliente;
 import com.darkcode.apirest.models.entity.Telefono;
 import com.darkcode.apirest.services.services.ITelefonoService;

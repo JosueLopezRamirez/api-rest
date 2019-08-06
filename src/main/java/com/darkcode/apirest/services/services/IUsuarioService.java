@@ -4,13 +4,13 @@ import java.util.List;
 
 import com.darkcode.apirest.models.entity.Empleado;
 import com.darkcode.apirest.models.entity.Usuario;
-import com.darkcode.apirest.models.entity.petitions.Users;
+import com.darkcode.apirest.DTO.UsuarioDTO;
 
 public interface IUsuarioService {
 
 	//public List<Object> fecthByIdWithEmpleadoWithPersona();
 
-	public List<Users> findAllUsers();
+	public List<UsuarioDTO> findAllUsers();
 
     public List<Usuario> findAll();
 

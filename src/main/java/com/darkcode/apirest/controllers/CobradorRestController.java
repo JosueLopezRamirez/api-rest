@@ -2,7 +2,7 @@ package com.darkcode.apirest.controllers;
 
 import com.darkcode.apirest.ApiRestApplication;
 import com.darkcode.apirest.models.entity.Cobrador;
-import com.darkcode.apirest.models.entity.petitions.Collector;
+import com.darkcode.apirest.DTO.CobradorDTO;
 import com.darkcode.apirest.services.services.ICobradorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,9 +31,9 @@ public class CobradorRestController {
 
     @PostMapping("/cobradores")
     @ResponseStatus(HttpStatus.CREATED)
-    public Cobrador create(@RequestBody Collector collector){
+    public Cobrador create(@RequestBody CobradorDTO cobradorDTO){
         Cobrador cobrador = new Cobrador();
-        cobrador.setEmpleado(cobradorService.findEmployeeById(collector.getEmpleado_id()));
+        cobrador.setEmpleado(cobradorService.findEmployeeById(cobradorDTO.getEmpleado_id()));
         return cobradorService.save(cobrador);
     }
 

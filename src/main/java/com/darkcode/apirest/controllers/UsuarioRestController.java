@@ -2,7 +2,7 @@ package com.darkcode.apirest.controllers;
 
 import com.darkcode.apirest.ApiRestApplication;
 import com.darkcode.apirest.models.entity.Usuario;
-import com.darkcode.apirest.models.entity.petitions.Users;
+import com.darkcode.apirest.DTO.UsuarioDTO;
 import com.darkcode.apirest.services.services.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,8 +30,8 @@ public class UsuarioRestController {
 	 * Para no mandar datos innecesarios al cliente
 	 */
 	@GetMapping("/findUsers")
-	public List<Users> findAllUsers(){
-		return (List<Users>) usuarioService.findAllUsers();
+	public List<UsuarioDTO> findAllUsers(){
+		return (List<UsuarioDTO>) usuarioService.findAllUsers();
 	}
 
 	//Obtener todos los usuarios con su formato objeto Java
@@ -49,7 +49,7 @@ public class UsuarioRestController {
 	//Metodo para insertar un usuario a la base de datos
 	@PostMapping("/users")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Usuario create(@RequestBody Users user){
+	public Usuario create(@RequestBody UsuarioDTO user){
 		//Creando usuario temporal y pasando los parametros del user recibido
 		Usuario usuario = new Usuario();
 		usuario.setUsername(user.getUsername());
@@ -64,7 +64,7 @@ public class UsuarioRestController {
 	//Metodo para actualizar ciertos campos de un usuairo en la base de datos
 	@PutMapping("/users/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Usuario update(@RequestBody Users user, @PathVariable Long id) {
+	public Usuario update(@RequestBody UsuarioDTO user, @PathVariable Long id) {
 		/*
 		* Asignando los valores del usuario enviado por el cliente a un objeto temporal
 		* esto para luego ser enviado a la base datos
