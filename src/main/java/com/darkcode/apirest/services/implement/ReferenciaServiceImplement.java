@@ -57,7 +57,7 @@ public class ReferenciaServiceImplement implements IReferenciaService {
 
     @Override
     @Transactional
-    public Titular findTitularById(Long id) {
+    public Titular findTitularById(String id) {
         return titularDao.findById(id).orElse(null);
     }
 }

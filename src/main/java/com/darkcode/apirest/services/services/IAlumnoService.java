@@ -9,11 +9,11 @@ public interface IAlumnoService {
 
     public List<Alumno> findAll();
 
-    public Alumno findById(Long id);
+    public Alumno findById(String id);
 
     public Alumno save(Alumno alumno);
 
-    public void delete(Long id);
+    public void delete(String id);
 
     public Cliente findClientById(Long id);
 }

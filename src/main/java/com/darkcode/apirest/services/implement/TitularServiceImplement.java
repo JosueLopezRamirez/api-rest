@@ -26,7 +26,7 @@ public class TitularServiceImplement implements ITitularService {
 
     @Override
     @Transactional(readOnly =  true)
-    public Titular findById(Long id) { return titularDao.findById(id).orElse(null); }
+    public Titular findById(String id) { return titularDao.findById(id).orElse(null); }
 
     @Override
     @Transactional
@@ -34,7 +34,7 @@ public class TitularServiceImplement implements ITitularService {
 
     @Override
     @Transactional
-    public void delete(Long id) { titularDao.deleteById(id); }
+    public void delete(String id) { titularDao.deleteById(id); }
 
     @Override
     @Transactional

@@ -29,7 +29,7 @@ public class ReferenciaRestController {
 
     @PostMapping("/referencias/{persona_id}/{titular_id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Referencia create(@RequestBody Referencia referencia, @PathVariable Long persona_id,@PathVariable Long titular_id){
+    public Referencia create(@RequestBody Referencia referencia, @PathVariable Long persona_id,@PathVariable String titular_id){
         referencia.setPersona(referenciaService.findPersonaById(persona_id));
         referencia.setTitular(referenciaService.findTitularById(titular_id));
         return referenciaService.save(referencia);

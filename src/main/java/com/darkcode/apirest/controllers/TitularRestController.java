@@ -21,7 +21,7 @@ public class TitularRestController {
     private List<Titular> select(){ return titularService.findAll(); }
 
     @GetMapping("/titular/{id}")
-    public Titular show(@PathVariable Long id){ return titularService.findById(id); }
+    public Titular show(@PathVariable String id){ return titularService.findById(id); }
 
     @PostMapping("/titular/{id}")
     @ResponseStatus(HttpStatus.CREATED)
@@ -32,7 +32,7 @@ public class TitularRestController {
 
     @PutMapping("/titular/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Titular update(@RequestBody Titular titular,@PathVariable Long id){
+    public Titular update(@RequestBody Titular titular,@PathVariable String id){
         Titular titularActual = titularService.findById(id);
         titularActual.setNombreTrabajo(titular.getNombreTrabajo());
         titularActual.setDireccionTrabajo(titular.getDireccionTrabajo());
@@ -43,5 +43,5 @@ public class TitularRestController {
 
     @DeleteMapping("/titular/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id){ titularService.delete(id); }
+    public void delete(@PathVariable String id){ titularService.delete(id); }
 }

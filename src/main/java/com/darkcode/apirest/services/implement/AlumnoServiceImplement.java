@@ -26,7 +26,7 @@ public class AlumnoServiceImplement implements IAlumnoService {
 
     @Override
     @Transactional(readOnly =  true)
-    public Alumno findById(Long id) { return alumnoDao.findById(id).orElse(null); }
+    public Alumno findById(String id) { return alumnoDao.findById(id).orElse(null); }
 
     @Override
     @Transactional
@@ -34,7 +34,7 @@ public class AlumnoServiceImplement implements IAlumnoService {
 
     @Override
     @Transactional
-    public void delete(Long id) { alumnoDao.deleteById(id); }
+    public void delete(String id) { alumnoDao.deleteById(id); }
 
     @Override
     @Transactional

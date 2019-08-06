@@ -18,5 +18,5 @@ public interface IReferenciaService {
 
     public Persona findPersonaById(Long id);
 
-    public Titular findTitularById(Long id);
+    public Titular findTitularById(String id);
 }

@@ -16,13 +16,13 @@ public class ContratoId implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	@ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToOne(optional = false, fetch = FetchType.EAGER)
 	private Asesor asesor;
 	
-	@ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToOne(optional = false, fetch = FetchType.EAGER)
 	private Titular titular;
 	
-	@ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@ManyToOne(optional = false, fetch = FetchType.EAGER)
 	private Alumno alumno;
 
 	public Asesor getAsesor() {
@@ -48,5 +48,12 @@ public class ContratoId implements Serializable {
 	public void setAlumno(Alumno alumno) {
 		this.alumno = alumno;
 	}
-	
+
+	public ContratoId(){}
+
+	public ContratoId(Asesor asesor, Titular titular, Alumno alumno) {
+		this.asesor = asesor;
+		this.titular = titular;
+		this.alumno = alumno;
+	}
 }

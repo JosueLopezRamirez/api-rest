@@ -15,5 +15,5 @@ public interface IExamenService {
 
     public void delete(Long id);
 
-    public Alumno findAlumnoById(Long id);
+    public Alumno findAlumnoById(String id);
 }

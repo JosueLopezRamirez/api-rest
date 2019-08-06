@@ -44,8 +44,8 @@ public class ContratoServiceImplement implements IContratoService {
         for(Contrato con: contrato){
             contratoDTO.add(
                     new ContratoDTO(
-                            Long.parseLong(con.getContratoId().getAlumno().getId()),
-                            Long.parseLong(con.getContratoId().getTitular().getId()),
+                            con.getContratoId().getAlumno().getId(),
+                            con.getContratoId().getTitular().getId(),
                             con.getContratoId().getAsesor().getId(),
                             con.getEstrategia().getId(),
                             con.getPlanPago().getId(),
@@ -64,8 +64,8 @@ public class ContratoServiceImplement implements IContratoService {
         Contrato con = contratoDao.findById(id).orElse(null);
         if(con != null){
             ContratoDTO contratoDto = new ContratoDTO();
-            contratoDto.setAlumno_id(Long.valueOf(con.getContratoId().getAlumno().getId()));
-            contratoDto.setTitular_id(Long.valueOf(con.getContratoId().getTitular().getId()));
+            contratoDto.setAlumno_id(con.getContratoId().getAlumno().getId());
+            contratoDto.setTitular_id(con.getContratoId().getTitular().getId());
             contratoDto.setAsesor_id(con.getContratoId().getAsesor().getId());
             contratoDto.setEstrategia_id(con.getEstrategia().getId());
             contratoDto.setPlan_id(con.getPlanPago().getId());
@@ -105,13 +105,13 @@ public class ContratoServiceImplement implements IContratoService {
     //Metodos para obtener los id de los objetos que se integran por medio del id
     @Override
     @Transactional(readOnly = true)
-    public Alumno findAlumnoById(Long id) {
+    public Alumno findAlumnoById(String id) {
         return alumnoDao.findById(id).orElse(null);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Titular findTitularById(Long id) {
+    public Titular findTitularById(String id) {
         return titularDao.findById(id).orElse(null);
     }
 

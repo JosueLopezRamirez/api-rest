@@ -21,7 +21,7 @@ public class AlumnoRestController {
     private List<Alumno> select(){ return alumnoService.findAll(); }
 
     @GetMapping("/alumno/{id}")
-    public Alumno show(@PathVariable Long id){ return alumnoService.findById(id); }
+    public Alumno show(@PathVariable String id){ return alumnoService.findById(id); }
 
     @PostMapping("/alumno/{id}")
     @ResponseStatus(HttpStatus.CREATED)
@@ -32,7 +32,7 @@ public class AlumnoRestController {
 
     @PutMapping("/alumno/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public Alumno update(@RequestBody Alumno alumno,@PathVariable Long id){
+    public Alumno update(@RequestBody Alumno alumno,@PathVariable String id){
         Alumno alumnoActual = alumnoService.findById(id);
         alumnoActual.setActivo(alumno.getActivo());
         alumnoActual.setNivel(alumno.getNivel());
@@ -41,5 +41,5 @@ public class AlumnoRestController {
 
     @DeleteMapping("/alumno/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id){ alumnoService.delete(id); }
+    public void delete(@PathVariable String id){ alumnoService.delete(id); }
 }

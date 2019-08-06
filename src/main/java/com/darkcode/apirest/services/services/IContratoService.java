@@ -19,9 +19,9 @@ public interface IContratoService {
 
     public void delete(Long id);
 
-    public Alumno findAlumnoById(Long id);
+    public Alumno findAlumnoById(String id);
 
-    public Titular findTitularById(Long id);
+    public Titular findTitularById(String id);
 
     public Asesor findAsesorById(Long id);
 

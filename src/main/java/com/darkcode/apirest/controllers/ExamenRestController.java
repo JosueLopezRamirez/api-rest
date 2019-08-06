@@ -25,7 +25,7 @@ public class ExamenRestController {
 
     @PostMapping("/examen/{id}")
     @ResponseStatus(HttpStatus.CREATED)
-    public ExamenUbicacion create(@RequestBody ExamenUbicacion examen,@PathVariable Long id){
+    public ExamenUbicacion create(@RequestBody ExamenUbicacion examen,@PathVariable String id){
         examen.setAlumno(examenService.findAlumnoById(id));
         return examenService.save(examen);
     }

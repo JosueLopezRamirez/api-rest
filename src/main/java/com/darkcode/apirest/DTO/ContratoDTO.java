@@ -4,27 +4,27 @@ import java.util.Date;
 
 public class ContratoDTO {
 
-    private Long alumno_id;
-    private Long titular_id;
+    private String alumno_id;
+    private String titular_id;
     private Long asesor_id;
     private Long estrategia_id;
     private Long plan_id;
     private Long forma_id;
     private Date fechaContrato;
 
-    public Long getAlumno_id() {
+    public String getAlumno_id() {
         return alumno_id;
     }
 
-    public void setAlumno_id(Long alumno_id) {
+    public void setAlumno_id(String alumno_id) {
         this.alumno_id = alumno_id;
     }
 
-    public Long getTitular_id() {
+    public String getTitular_id() {
         return titular_id;
     }
 
-    public void setTitular_id(Long titular_id) {
+    public void setTitular_id(String titular_id) {
         this.titular_id = titular_id;
     }
 
@@ -70,7 +70,7 @@ public class ContratoDTO {
 
     public ContratoDTO(){}
 
-    public ContratoDTO(Long alumno_id, Long titular_id, Long asesor_id, Long estrategia_id, Long plan_id, Long forma_id, Date fechaContrato) {
+    public ContratoDTO(String alumno_id, String titular_id, Long asesor_id, Long estrategia_id, Long plan_id, Long forma_id, Date fechaContrato) {
         this.alumno_id = alumno_id;
         this.titular_id = titular_id;
         this.asesor_id = asesor_id;

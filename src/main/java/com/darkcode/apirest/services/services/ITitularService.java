@@ -9,11 +9,11 @@ public interface ITitularService {
 
     public List<Titular> findAll();
 
-    public Titular findById(Long id);
+    public Titular findById(String id);
 
     public Titular save(Titular titular);
 
-    public void delete(Long id);
+    public void delete(String id);
 
     public Cliente findClientById(Long id);
 }

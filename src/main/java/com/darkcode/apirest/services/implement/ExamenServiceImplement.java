@@ -4,7 +4,6 @@ import com.darkcode.apirest.models.DAO.IAlumnoDao;
 import com.darkcode.apirest.models.DAO.IExamenDao;
 import com.darkcode.apirest.models.entity.Alumno;
 import com.darkcode.apirest.models.entity.ExamenUbicacion;
-import com.darkcode.apirest.services.services.IAlumnoService;
 import com.darkcode.apirest.services.services.IExamenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,7 +46,7 @@ public class ExamenServiceImplement implements IExamenService {
 
     @Override
     @Transactional
-    public Alumno findAlumnoById(Long id) {
+    public Alumno findAlumnoById(String id) {
         return alumnoDao.findById(id).orElse(null);
     }
 }
