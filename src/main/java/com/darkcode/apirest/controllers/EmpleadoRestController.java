@@ -19,17 +19,17 @@ public class EmpleadoRestController {
     @Autowired
     private IEmpleadoService empleadoService;
 
-    @GetMapping("/employees")
+    @GetMapping("/empleados")
     public List<Empleado> select() {
         return (List<Empleado>) empleadoService.findAll();
     }
 
-    @GetMapping("/employees/{id}")
+    @GetMapping("/empleados/{id}")
     public Empleado show(@PathVariable Long id) {
         return empleadoService.findById(id);
     }
 
-    @PostMapping("/employees")
+    @PostMapping("/empleados")
     @ResponseStatus(HttpStatus.CREATED)
     public Empleado create(@RequestBody EmpleadoDTO empleadoDTO) {
         //Creando usuario temporal y pasando los parametros del user recibido
@@ -42,7 +42,7 @@ public class EmpleadoRestController {
     }
 
     //Metodo para actualizar ciertos campos de un usuairo en la base de datos
-    @PutMapping("/employees/{id}")
+    @PutMapping("/empleados/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Empleado update(@RequestBody EmpleadoDTO empleadoDTO, @PathVariable Long id) {
         /*
@@ -56,7 +56,7 @@ public class EmpleadoRestController {
     }
 
     //Metodo para eliminar un usuario de la base de datos
-    @DeleteMapping("/employees/{id}")
+    @DeleteMapping("/empleados/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         empleadoService.delete(id);

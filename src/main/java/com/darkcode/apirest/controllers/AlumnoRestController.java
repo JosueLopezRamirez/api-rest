@@ -17,13 +17,13 @@ public class AlumnoRestController {
     @Autowired
     private IAlumnoService alumnoService;
 
-    @GetMapping("/alumno")
+    @GetMapping("/alumnos")
     private List<Alumno> select(){ return alumnoService.findAll(); }
 
-    @GetMapping("/alumno/{id}")
+    @GetMapping("/alumnos/{id}")
     public Alumno show(@PathVariable String id){ return alumnoService.findById(id); }
 
-    @PostMapping("/alumno/{id}")
+    @PostMapping("/alumnos/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Alumno create(@RequestBody Alumno alumno, @PathVariable Long id){
         alumno.setCliente(alumnoService.findClientById(id));

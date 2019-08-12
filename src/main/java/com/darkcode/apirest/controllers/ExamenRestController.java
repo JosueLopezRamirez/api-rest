@@ -17,20 +17,20 @@ public class ExamenRestController {
     @Autowired
     private IExamenService examenService;
 
-    @GetMapping("/examen")
+    @GetMapping("/examenes")
     public List<ExamenUbicacion> select(){ return examenService.findAll(); }
 
-    @GetMapping("/examen/{id}")
+    @GetMapping("/examenes/{id}")
     public ExamenUbicacion show(@PathVariable Long id){ return examenService.findById(id); }
 
-    @PostMapping("/examen/{id}")
+    @PostMapping("/examenes/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public ExamenUbicacion create(@RequestBody ExamenUbicacion examen,@PathVariable String id){
         examen.setAlumno(examenService.findAlumnoById(id));
         return examenService.save(examen);
     }
 
-    @PutMapping("/examen/{id}")
+    @PutMapping("/examenes/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public ExamenUbicacion update(@RequestBody ExamenUbicacion examen, @PathVariable Long id){
         ExamenUbicacion examenActual = examenService.findById(id);

@@ -3,6 +3,7 @@ package com.darkcode.apirest.services.implement;
 import com.darkcode.apirest.DTO.ContratoDTO;
 import com.darkcode.apirest.models.DAO.*;
 import com.darkcode.apirest.models.entity.*;
+import com.darkcode.apirest.models.entity.composite.ContratoId;
 import com.darkcode.apirest.services.services.IContratoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -60,7 +61,7 @@ public class ContratoServiceImplement implements IContratoService {
     //Seleccionamos un contrato en formato POJO y lo pasamos a DTO para devolver un formato mas ligero
     @Override
     @Transactional(readOnly = true)
-    public ContratoDTO findContratoDtoById(Long id) {
+    public ContratoDTO findContratoDtoById(ContratoId id) {
         Contrato con = contratoDao.findById(id).orElse(null);
         if(con != null){
             ContratoDTO contratoDto = new ContratoDTO();
@@ -86,7 +87,7 @@ public class ContratoServiceImplement implements IContratoService {
 
     @Override
     @Transactional(readOnly = true)
-    public Contrato findById(Long id) {
+    public Contrato findById(ContratoId id) {
         return contratoDao.findById(id).orElse(null);
     }
 
@@ -98,7 +99,7 @@ public class ContratoServiceImplement implements IContratoService {
 
     @Override
     @Transactional
-    public void delete(Long id) {
+    public void delete(ContratoId id) {
         contratoDao.deleteById(id);
     }
 

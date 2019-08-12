@@ -30,12 +30,12 @@ public class ContratoRestController {
     }
 
     @GetMapping("/contratos/dto/{id}")
-    public ContratoDTO showDto(@PathVariable Long id){
+    public ContratoDTO showDto(@PathVariable ContratoId id){
         return contratoService.findContratoDtoById(id);
     }
 
     @GetMapping("/contratos/{id}")
-    public Contrato show(@PathVariable Long id){
+    public Contrato show(@PathVariable ContratoId id){
         return contratoService.findById(id);
     }
 
@@ -60,11 +60,9 @@ public class ContratoRestController {
         return contratoService.save(contrato);
     }
 
-    //@PutMapping("/contratos")
-
-    @DeleteMapping("/contratos/{id}")
+    @DeleteMapping("/contratos")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id){
+    public void delete(@RequestBody ContratoId id){
         contratoService.delete(id);
     }
 }

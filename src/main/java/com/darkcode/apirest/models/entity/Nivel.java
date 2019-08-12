@@ -20,7 +20,7 @@ public class Nivel implements Serializable {
 	@Column(name = "id")
 	private Long id;
 
-	@Column(name = "descripcion", length = 50, insertable = true, updatable = true, nullable = false)
+	@Column(name = "descripcion", length = 50, nullable = false,unique = true)
 	private String descripcion;
 
 	public Long getId() {

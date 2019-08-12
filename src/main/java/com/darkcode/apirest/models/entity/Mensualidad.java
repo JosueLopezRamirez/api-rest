@@ -27,26 +27,21 @@ public class Mensualidad implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	private Titular titular;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	private Cobrador cobrador;
 
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	private PlanPago planPago;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER, optional = false)
+	@OneToOne(fetch = FetchType.EAGER, optional = false)
 	private FormaPago forma;
 
 	@Basic
 	@Temporal(TemporalType.DATE)
-	@Column(name = "fecha_pagar", insertable = true, updatable = true, nullable = false)
-	private Date FechaPagar;
-
-	@Basic
-	@Temporal(TemporalType.DATE)
-	@Column(name = "fecha_pago", insertable = true, updatable = true, nullable = false)
+	@Column(name = "fecha_pago", insertable = true, nullable = false, updatable = true)
 	private Date FechaPago;
 
 	@Column(name = "valor_pagar", insertable = true, updatable = true, nullable = false)
@@ -98,14 +93,6 @@ public class Mensualidad implements Serializable {
 		this.forma = forma;
 	}
 
-	public Date getFechaPagar() {
-		return FechaPagar;
-	}
-
-	public void setFechaPagar(Date fechaPagar) {
-		FechaPagar = fechaPagar;
-	}
-
 	public Date getFechaPago() {
 		return FechaPago;
 	}
@@ -140,14 +127,13 @@ public class Mensualidad implements Serializable {
 
 	public Mensualidad() {}
 
-	public Mensualidad(Long id, Titular titular, Cobrador cobrador, PlanPago planPago, FormaPago forma, Date fechaPagar, Date fechaPago, float valorPagar, short diasMora, float saldoPendiente) {
+	public Mensualidad(Long id, Titular titular, Cobrador cobrador, PlanPago planPago, FormaPago forma, Date fechaPago, float valorPagar, short diasMora, float saldoPendiente) {
 		super();
 		Id = id;
 		this.titular = titular;
 		this.cobrador = cobrador;
 		this.planPago = planPago;
 		this.forma = forma;
-		FechaPagar = fechaPagar;
 		FechaPago = fechaPago;
 		ValorPagar = valorPagar;
 		this.diasMora = diasMora;

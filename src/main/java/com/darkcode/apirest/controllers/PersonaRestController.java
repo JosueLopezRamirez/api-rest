@@ -17,21 +17,21 @@ public class PersonaRestController {
     @Autowired
     private IPersonaService personaService;
 
-    @GetMapping("/persons")
+    @GetMapping("/personas")
     public List<Persona> select() { return personaService.findAll(); }
 
-    @GetMapping("/persons/{id}")
+    @GetMapping("/personas/{id}")
     public Persona show(@PathVariable Long id) {
         return personaService.findById(id);
     }
 
-    @PostMapping("/persons")
+    @PostMapping("/personas")
     @ResponseStatus(HttpStatus.CREATED)
     public Persona create(@RequestBody Persona persona) {
         return personaService.save(persona);
     }
 
-    @PutMapping("/persons/{id}")
+    @PutMapping("/personas/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Persona update(@RequestBody Persona persona, @PathVariable Long id) {
         Persona personaActual = personaService.findById(id);
@@ -40,7 +40,7 @@ public class PersonaRestController {
         return personaService.save(personaActual);
     }
 
-    @DeleteMapping("/persons/{id}")
+    @DeleteMapping("/personas/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) {
         personaService.delete(id);

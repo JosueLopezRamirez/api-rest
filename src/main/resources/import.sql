@@ -25,3 +25,8 @@ INSERT INTO Plan (valor_total,inscripcion,costo_mensual,cantidad_meses) VALUES(1
 
 insert into forma (descripcion) values ('Efectivo');
 insert into estrategia (descripcion) values ('Facebook');
+#Insertando valores a los catalogos de la reserva
+insert into tutor (nombre) values ('Julio');
+insert into tutoria (descripcion) values ('Unit Review');
+insert into unidad (descripcion) values ('Verbo to Be');
+insert into nivel (descripcion) values ('Basico');

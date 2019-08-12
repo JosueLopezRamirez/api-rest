@@ -16,7 +16,7 @@ public class Organizacion implements Serializable {
 	@Column(name = "id")
 	private Long id;
 
-	@Column(name = "nombreOrganizacion", length = 50, insertable = true, updatable = true, nullable = false)
+	@Column(name = "nombreOrganizacion", length = 50, nullable = false,unique = true)
 	private String nombreOrganizacion;
 
 	public Long getId() {

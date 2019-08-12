@@ -17,20 +17,20 @@ public class TitularRestController {
     @Autowired
     private ITitularService titularService;
 
-    @GetMapping("/titular")
+    @GetMapping("/titulares")
     private List<Titular> select(){ return titularService.findAll(); }
 
-    @GetMapping("/titular/{id}")
+    @GetMapping("/titulares/{id}")
     public Titular show(@PathVariable String id){ return titularService.findById(id); }
 
-    @PostMapping("/titular/{id}")
+    @PostMapping("/titulares/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Titular create(@RequestBody Titular titular, @PathVariable Long id){
         titular.setCliente(titularService.findClientById(id));
         return titularService.save(titular);
     }
 
-    @PutMapping("/titular/{id}")
+    @PutMapping("/titulares/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Titular update(@RequestBody Titular titular,@PathVariable String id){
         Titular titularActual = titularService.findById(id);
@@ -41,7 +41,7 @@ public class TitularRestController {
         return titularService.save(titularActual);
     }
 
-    @DeleteMapping("/titular/{id}")
+    @DeleteMapping("/titulares/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable String id){ titularService.delete(id); }
 }

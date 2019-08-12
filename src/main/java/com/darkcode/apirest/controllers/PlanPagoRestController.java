@@ -17,19 +17,19 @@ public class PlanPagoRestController {
 	@Autowired
 	private IPlanPagoService planService;
 	
-	@GetMapping("/plan")
+	@GetMapping("/planes")
 	public List<PlanPago> select(){
 		return planService.findAll();
 	}
 
-	@GetMapping("/plan/{id}")
+	@GetMapping("/planes/{id}")
 	public PlanPago show(@PathVariable Long id){ return planService.findById(id); }
 
-	@PostMapping("/plan")
+	@PostMapping("/planes")
 	@ResponseStatus(HttpStatus.CREATED)
 	public PlanPago create(@RequestBody PlanPago planPago){ return planService.save(planPago); }
 
-	@PutMapping("/plan/{id}")
+	@PutMapping("/planes/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public PlanPago update(@RequestBody PlanPago planPago, @PathVariable Long id){
 		PlanPago planActual = planService.findById(id);
@@ -39,7 +39,7 @@ public class PlanPagoRestController {
 		return planService.save(planActual);
 	}
 
-	@DeleteMapping("/plan/{id}")
+	@DeleteMapping("/planes/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id){
 		planService.delete(id);

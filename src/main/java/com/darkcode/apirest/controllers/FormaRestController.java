@@ -17,19 +17,19 @@ public class FormaRestController {
     @Autowired
     private IFormaService formaService;
 
-    @GetMapping("/forma")
+    @GetMapping("/formas")
     public List<FormaPago> select(){
         return formaService.findAll();
     }
 
-    @GetMapping("/forma/{id}")
+    @GetMapping("/formas/{id}")
     public FormaPago show(@PathVariable Long id){ return formaService.findById(id); }
 
-    @PostMapping("/forma")
+    @PostMapping("/formas")
     @ResponseStatus(HttpStatus.CREATED)
     public FormaPago create(@RequestBody FormaPago formaPago){ return formaService.save(formaPago); }
 
-    @PutMapping("/forma/{id}")
+    @PutMapping("/formas/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public FormaPago update(@RequestBody FormaPago formaPago, @PathVariable Long id){
         FormaPago formaActual = formaService.findById(id);
@@ -37,7 +37,7 @@ public class FormaRestController {
         return formaService.save(formaActual);
     }
 
-    @DeleteMapping("/forma/{id}")
+    @DeleteMapping("/formas/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id){
         formaService.delete(id);

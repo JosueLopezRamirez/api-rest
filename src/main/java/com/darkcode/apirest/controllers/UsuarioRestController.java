@@ -29,25 +29,25 @@ public class UsuarioRestController {
 	 * Esto para la parte del login, no enviamos el objeto completo, sino los datos necesarios
 	 * Para no mandar datos innecesarios al cliente
 	 */
-	@GetMapping("/findUsers")
+	@GetMapping("/findAllUsuarios")
 	public List<UsuarioDTO> findAllUsers(){
 		return (List<UsuarioDTO>) usuarioService.findAllUsers();
 	}
 
 	//Obtener todos los usuarios con su formato objeto Java
-	@GetMapping("/users")
+	@GetMapping("/usuarios")
 	public List<Usuario> select() {
 		return (List<Usuario>) usuarioService.findAll();
 	}
 
 	//Metodo para obtener un usuario de la base de datos por su id
-	@GetMapping("/users/{id}")
+	@GetMapping("/usuarios/{id}")
 	public Usuario show(@PathVariable Long id){
 		return usuarioService.findById(id);
 	}
 
 	//Metodo para insertar un usuario a la base de datos
-	@PostMapping("/users")
+	@PostMapping("/usuarios")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Usuario create(@RequestBody UsuarioDTO user){
 		//Creando usuario temporal y pasando los parametros del user recibido
@@ -62,7 +62,7 @@ public class UsuarioRestController {
 	}
 
 	//Metodo para actualizar ciertos campos de un usuairo en la base de datos
-	@PutMapping("/users/{id}")
+	@PutMapping("/usuarios/{id}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Usuario update(@RequestBody UsuarioDTO user, @PathVariable Long id) {
 		/*
@@ -78,7 +78,7 @@ public class UsuarioRestController {
 	}
 
 	//Metodo para eliminar un usuario de la base de datos
-	@DeleteMapping ("/users/{id}")
+	@DeleteMapping ("/usuarios/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long id){
 		usuarioService.delete(id);

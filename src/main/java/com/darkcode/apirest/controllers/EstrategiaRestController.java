@@ -17,19 +17,19 @@ public class EstrategiaRestController {
     @Autowired
     private IEstrategiaService estrategiaService;
 
-    @GetMapping("/estrategia")
+    @GetMapping("/estrategias")
     public List<Estrategia> select(){
         return estrategiaService.findAll();
     }
 
-    @GetMapping("/estrategia/{id}")
+    @GetMapping("/estrategias/{id}")
     public Estrategia show(@PathVariable Long id){ return estrategiaService.findById(id); }
 
-    @PostMapping("/estrategia")
+    @PostMapping("/estrategias")
     @ResponseStatus(HttpStatus.CREATED)
     public Estrategia create(@RequestBody Estrategia estrategia){ return estrategiaService.save(estrategia); }
 
-    @PutMapping("/estrategia/{id}")
+    @PutMapping("/estrategias/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Estrategia update(@RequestBody Estrategia estrategia, @PathVariable Long id){
         Estrategia estrategiaActual = estrategiaService.findById(id);
@@ -37,7 +37,7 @@ public class EstrategiaRestController {
         return estrategiaService.save(estrategiaActual);
     }
 
-    @DeleteMapping("/estrategia/{id}")
+    @DeleteMapping("/estrategias/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id){
         estrategiaService.delete(id);

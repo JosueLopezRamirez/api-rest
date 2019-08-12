@@ -17,21 +17,21 @@ public class OrganizacionRestController {
     @Autowired
     private IOrganizacionService organizacionService;
 
-    @GetMapping("/orgs")
+    @GetMapping("/organizaciones")
     public List<Organizacion> select() {
         return organizacionService.findAll();
     }
 
-    @GetMapping("/orgs/{id}")
+    @GetMapping("/organizaciones/{id}")
     public Organizacion show(@PathVariable Long id) {
         return organizacionService.findById(id);
     }
 
-    @PostMapping("/orgs")
+    @PostMapping("/organizaciones")
     @ResponseStatus(HttpStatus.CREATED)
     public Organizacion create(@RequestBody Organizacion organizacion) { return organizacionService.save(organizacion); }
 
-    @PutMapping("/orgs/{id}")
+    @PutMapping("/organizaciones/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Organizacion update(@RequestBody Organizacion organizacion, @PathVariable Long id) {
         Organizacion organizacionActual = organizacionService.findById(id);
@@ -39,7 +39,7 @@ public class OrganizacionRestController {
         return organizacionService.save(organizacionActual);
     }
 
-    @DeleteMapping("/orgs/{id}")
+    @DeleteMapping("/organizaciones/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) { organizacionService.delete(id); }
 }

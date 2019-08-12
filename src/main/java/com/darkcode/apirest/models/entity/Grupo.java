@@ -14,7 +14,7 @@ public class Grupo implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "nombreGrupo", length = 50, insertable = true, updatable = true, nullable = false)
+	@Column(name = "nombreGrupo", length = 50, nullable = false,unique = true)
 	private String NombreGrupo;
 
 	@ManyToOne

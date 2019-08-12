@@ -17,19 +17,19 @@ public class TutorRestController {
     @Autowired
     private ITutorService tutorService;
 
-    @GetMapping("/tutor")
+    @GetMapping("/tutores")
     public List<Tutor> select(){
         return tutorService.findAll();
     }
 
-    @GetMapping("/tutor/{id}")
+    @GetMapping("/tutores/{id}")
     public Tutor show(@PathVariable Long id){ return tutorService.findById(id); }
 
-    @PostMapping("/tutor")
+    @PostMapping("/tutores")
     @ResponseStatus(HttpStatus.CREATED)
     public Tutor create(@RequestBody Tutor tutor){ return tutorService.save(tutor); }
 
-    @PutMapping("/tutor/{id}")
+    @PutMapping("/tutores/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public Tutor update(@RequestBody Tutor tutor, @PathVariable Long id){
         Tutor tutorActual = tutorService.findById(id);
@@ -37,7 +37,7 @@ public class TutorRestController {
         return tutorService.save(tutorActual);
     }
 
-    @DeleteMapping("/tutor/{id}")
+    @DeleteMapping("/tutores/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id){
         tutorService.delete(id);
