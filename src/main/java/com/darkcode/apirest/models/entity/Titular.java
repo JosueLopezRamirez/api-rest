@@ -22,13 +22,13 @@ public class Titular implements Serializable {
 	@Column(name = "salario", insertable = true, updatable = true, nullable = false)
 	private float Salario;
 
-	@Column(name = "nombreTrabajo", length = 30, insertable = true, updatable = true, nullable = true)
+	@Column(name = "nombreTrabajo", length = 100, insertable = true, updatable = true, nullable = true)
 	private String NombreTrabajo;
 
 	@Column(name = "direccionTrabajo", length = 200, insertable = true, updatable = true, nullable = true)
 	private String DireccionTrabajo;
 
-	@Column(name = "telefonoTrabajo", length = 30, insertable = true, updatable = true, nullable = true)
+	@Column(name = "telefonoTrabajo", length = 40, insertable = true, updatable = true, nullable = true)
 	private String TelefonoTrabajo;
 
 	@OneToOne(cascade = CascadeType.ALL, optional = false)

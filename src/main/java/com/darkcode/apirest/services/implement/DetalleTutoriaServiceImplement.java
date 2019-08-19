@@ -5,7 +5,6 @@ import com.darkcode.apirest.models.DAO.*;
 import com.darkcode.apirest.models.entity.*;
 import com.darkcode.apirest.services.services.IDetalleTutoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.support.DaoSupport;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,7 +30,7 @@ public class DetalleTutoriaServiceImplement implements IDetalleTutoriaService {
     @Autowired
     private ITutoriaDao tutoriaDao;
 
-    @Override
+	@Override
     @Transactional(readOnly = true)
     public List<DetalleTutoriaDTO> findAll() {
         List<DetalleTutoria> listaDetalle = (List<DetalleTutoria>) detalleTutoriaDao.findAll();
@@ -51,7 +50,7 @@ public class DetalleTutoriaServiceImplement implements IDetalleTutoriaService {
             });
         }catch (Exception ex){
             ex.printStackTrace();
-        }finally {
+        }finally{
             return listaDto;
         }
     }

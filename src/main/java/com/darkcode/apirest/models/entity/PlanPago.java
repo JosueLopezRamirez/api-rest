@@ -19,13 +19,13 @@ public class PlanPago implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
 
-	@Column(name = "valorTotal", insertable = true, updatable = true, nullable = false, unique = true)
+	@Column(name = "valorTotal", insertable = true, updatable = true, nullable = false)
 	private float ValorTotal;
 
-	@Column(name = "inscripcion", insertable = true, updatable = true, nullable = true, unique = true)
+	@Column(name = "inscripcion", insertable = true, updatable = true, nullable = true)
 	private float Inscripcion;
 
-	@Column(name = "costoMensual", insertable = true, updatable = true, nullable = true, unique = true)
+	@Column(name = "costoMensual", insertable = true, updatable = true, nullable = true)
 	private float CostoMensual;
 
 	@Column(name = "cantidadMeses", insertable = true, updatable = true, nullable = true)

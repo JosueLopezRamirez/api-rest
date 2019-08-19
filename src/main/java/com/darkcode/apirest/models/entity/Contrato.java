@@ -3,14 +3,14 @@ package com.darkcode.apirest.models.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-import com.darkcode.apirest.models.entity.composite.ContratoId;
 import com.darkcode.apirest.models.entity.composite.ContratoId;
 
 @Entity
@@ -22,15 +22,16 @@ public class Contrato implements Serializable {
 	@EmbeddedId
 	private ContratoId contratoId;
 
-	@OneToOne(fetch = FetchType.EAGER, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	private Estrategia estrategia;
 
-	@OneToOne(fetch = FetchType.EAGER, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	private FormaPago formaPago;
 
-	@OneToOne(fetch = FetchType.EAGER, optional = false)
+	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	private PlanPago planPago;
 
+	@Temporal(TemporalType.DATE)
 	private Date fechaContrato;
 
 	// Getters and Setters

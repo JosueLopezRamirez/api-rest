@@ -20,7 +20,7 @@ public class FormaPago implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long Id;
 
-	@Column(name = "descripcion", nullable = false,unique = true)
+	@Column(name = "descripcion", nullable = false)
 	@Size(min = 20, max = 35)
 	private String Descripcion;
 

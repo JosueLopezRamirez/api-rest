@@ -6,10 +6,14 @@ import com.darkcode.apirest.models.entity.Contrato;
 import com.darkcode.apirest.models.entity.composite.ContratoId;
 import com.darkcode.apirest.services.services.IContratoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = {ApiRestApplication.FrontEnd})
 @RestController
@@ -24,19 +28,25 @@ public class ContratoRestController {
         return contratoService.findAll();
     }
 
-    @GetMapping("/contratos/dto")
-    public List<ContratoDTO> selectDto(){
-        return contratoService.findAllContratoDto();
-    }
-
-    @GetMapping("/contratos/dto/{id}")
-    public ContratoDTO showDto(@PathVariable ContratoId id){
-        return contratoService.findContratoDtoById(id);
-    }
-
     @GetMapping("/contratos/{id}")
-    public Contrato show(@PathVariable ContratoId id){
-        return contratoService.findById(id);
+    public ResponseEntity<?> show(@PathVariable ContratoId id){
+    	Contrato contrato = null;
+    	Map<String, Object> response = new HashMap<>();
+    	
+    	try {
+    		contrato = contratoService.findById(id);
+		} catch (DataAccessException e) {
+			response.put("mensaje", "Error al realizar la consulta a la base de datos!");
+			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+    		return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
+		}
+    	
+    	
+    	if(contrato == null) {
+    		response.put("mensaje", "El contrato con el ID".concat(id.toString().concat(" no existe en la base de datos~!")));
+    		return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
+    	}
+        return new ResponseEntity<Contrato>(contrato, HttpStatus.OK);
     }
 
     @PostMapping("/contratos")

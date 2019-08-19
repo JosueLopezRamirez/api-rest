@@ -40,4 +40,37 @@ public class ReservaId implements Serializable {
         this.alumno = alumno;
         this.detalleTutoria = detalleTutoria;
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((alumno == null) ? 0 : alumno.hashCode());
+		result = prime * result + ((detalleTutoria == null) ? 0 : detalleTutoria.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ReservaId other = (ReservaId) obj;
+		if (alumno == null) {
+			if (other.alumno != null)
+				return false;
+		} else if (!alumno.equals(other.alumno))
+			return false;
+		if (detalleTutoria == null) {
+			if (other.detalleTutoria != null)
+				return false;
+		} else if (!detalleTutoria.equals(other.detalleTutoria))
+			return false;
+		return true;
+	}
+    
+    
 }

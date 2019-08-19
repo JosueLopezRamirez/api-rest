@@ -18,6 +18,7 @@ public class Estrategia implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Column(name = "id",unique = false)
 	private Long Id;
 
 	@Column(name = "descripcion", insertable = true, updatable = true, nullable = false)

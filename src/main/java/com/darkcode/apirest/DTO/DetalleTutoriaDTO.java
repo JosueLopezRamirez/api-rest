@@ -3,7 +3,6 @@ package com.darkcode.apirest.DTO;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import java.util.Date;
-import java.util.Timer;
 
 public class DetalleTutoriaDTO {
 

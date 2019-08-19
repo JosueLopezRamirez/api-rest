@@ -3,6 +3,7 @@ package com.darkcode.apirest.controllers;
 import com.darkcode.apirest.ApiRestApplication;
 import com.darkcode.apirest.models.entity.Asesor;
 import com.darkcode.apirest.DTO.AsesorDTO;
+import com.darkcode.apirest.DTO.AsesorNames;
 import com.darkcode.apirest.services.services.IAsesorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@SuppressWarnings("ALL")
 @CrossOrigin(origins = {ApiRestApplication.FrontEnd})
 @RestController
 @RequestMapping("/api")
@@ -28,6 +28,13 @@ public class AsesorRestController {
     public Asesor show(@PathVariable Long id){
         return asesorService.findById(id);
     }
+    
+    @GetMapping("/asesoresNombres")
+    public List<AsesorNames> findAllNames(){
+    	List<AsesorNames> lista = asesorService.buscarAsesorNombreApellido();
+        return lista;
+    }
+    
 
     @PostMapping("/asesores")
     @ResponseStatus(HttpStatus.CREATED)
