@@ -7,6 +7,7 @@ import com.darkcode.apirest.models.DAO.IGrupoDao;
 import com.darkcode.apirest.models.entity.Asesor;
 import com.darkcode.apirest.models.entity.Empleado;
 import com.darkcode.apirest.models.entity.Grupo;
+import com.darkcode.apirest.models.entity.Persona;
 import com.darkcode.apirest.services.services.IAsesorService;
 
 import org.aspectj.lang.annotation.After;
@@ -19,6 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -36,20 +39,6 @@ public class AsesorServiceImplement implements IAsesorService {
 
     @Autowired
     private IGrupoDao grupoDao;
-    
-    private EntityManagerFactory emf;
-    private EntityManager em;
-    @Before(value = "value")
-    public void init() {
-    	emf = Persistence.createEntityManagerFactory("my-persistence-unit");
-    }
-    
-    @After(value = "value")
-    public void close() {
-    	emf.close();
-    }
-    
-    
     
     @Override
     @Transactional(readOnly = true)
@@ -88,14 +77,11 @@ public class AsesorServiceImplement implements IAsesorService {
 	@Override
 	@Transactional
 	public List<AsesorNames> buscarAsesorNombreApellido() {
-//		return asesorDao.GET_ASESORES_DATOS_PERSONALES();
-		em = emf.createEntityManager();
-		em.getTransaction().begin();
-		
-		Session session = em.unwrap(Session.class);
-		ProcedureCall  call = session.createStoredProcedureCall("GET_ASESORES_DATOS_PERSONALES");
-		Output output = call.getOutputs().getCurrent();
-		List<AsesorNames> lista = ((ResultSetOutput) output).getResultList();
-		return lista;
+		List<Object[]> lista = asesorDao.GET_ASESORES_DATOS_PERSONALES();
+        List<AsesorNames> listaDevuelta = new ArrayList<>();
+        lista.forEach(item -> {
+            listaDevuelta.add(new AsesorNames((BigInteger) item[0],(String)item[1],(String)item[2]));
+        });
+		return listaDevuelta;
 	}
 }

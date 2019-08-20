@@ -1,16 +1,18 @@
 package com.darkcode.apirest.DTO;
 
+import java.math.BigInteger;
+
 public class AsesorNames {
 	
-	private Long id;
+	private BigInteger id;
 	private String nombre;
 	private String apellido;
 
-	public Long getId() {
+	public BigInteger getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(BigInteger id) {
 		this.id = id;
 	}
 
@@ -32,7 +34,7 @@ public class AsesorNames {
 	
 	public AsesorNames() {}
 
-	public AsesorNames(Long id, String nombre, String apellido) {
+	public AsesorNames(BigInteger id, String nombre, String apellido) {
 		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;

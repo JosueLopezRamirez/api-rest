@@ -13,13 +13,11 @@ import javax.persistence.NamedStoredProcedureQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.darkcode.apirest.DTO.AsesorNames;
-
 @Entity
 @Table(name = "asesor")
 //@NamedStoredProcedureQueries({
 //	@NamedStoredProcedureQuery(
-//	name = "buscarAsesores",
+//	name = "findAsesors",
 //	procedureName = "GET_ASESORES_DATOS_PERSONALES",
 //	resultClasses = {Asesor.class})
 //})

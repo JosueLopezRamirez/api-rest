@@ -4,6 +4,7 @@ import com.darkcode.apirest.DTO.AsesorNames;
 import com.darkcode.apirest.models.entity.Asesor;
 import com.darkcode.apirest.models.entity.Empleado;
 import com.darkcode.apirest.models.entity.Grupo;
+import com.darkcode.apirest.models.entity.Persona;
 
 import java.util.List;
 

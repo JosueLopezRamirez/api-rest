@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="db-epi">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>com.darkcode.apirest.model.Alumno</class>
+        <class>com.darkcode.apirest.model.Asesor</class>
+        <class>com.darkcode.apirest.model.Cliente</class>
+        <class>com.darkcode.apirest.model.Cobrador</class>
+        <class>com.darkcode.apirest.model.Contrato</class>
+        <class>com.darkcode.apirest.model.Correo</class>
+        <class>com.darkcode.apirest.model.DetalleReserva</class>
+        <class>com.darkcode.apirest.model.Empleado</class>
+        <class>com.darkcode.apirest.model.Estrategia</class>
+        <class>com.darkcode.apirest.model.Examen</class>
+        <class>com.darkcode.apirest.model.Forma</class>
+        <class>com.darkcode.apirest.model.Grupo</class>
+        <class>com.darkcode.apirest.model.Mensualidad</class>
+        <class>com.darkcode.apirest.model.Nivel</class>
+        <class>com.darkcode.apirest.model.Organizacion</class>
+        <class>com.darkcode.apirest.model.Persona</class>
+        <class>com.darkcode.apirest.model.Plan</class>
+        <class>com.darkcode.apirest.model.Referencia</class>
+        <class>com.darkcode.apirest.model.Telefono</class>
+        <class>com.darkcode.apirest.model.Titular</class>
+        <class>com.darkcode.apirest.model.Tutor</class>
+        <class>com.darkcode.apirest.model.Tutoria</class>
+        <class>com.darkcode.apirest.model.Unidad</class>
+        <class>com.darkcode.apirest.model.Usuario</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/db_backend_excellence"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value=""/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+    </persistence-unit>
+</persistence>
