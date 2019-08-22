@@ -21,5 +21,5 @@ public interface IReservaService {
 
     public Alumno findAlumnoById(String id);
 
-    public DetalleTutoria findDetalleById(Date id);
+    public DetalleTutoria findDetalleById(Long id);
 }

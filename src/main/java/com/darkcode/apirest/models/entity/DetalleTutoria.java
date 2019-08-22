@@ -12,10 +12,16 @@ public class DetalleTutoria implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Basic
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
 	@Temporal(TemporalType.DATE)
 	@Column(name = "fecha")
-	private Date FechaReserva;
+	private Date fecha;
+
+	@Temporal(TemporalType.TIME)
+	@Column(name = "hora")
+	private Date hora;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	private Nivel nivel;
@@ -29,17 +35,16 @@ public class DetalleTutoria implements Serializable {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	private Tutor tutor;
 
-	@Basic
-	@Temporal(TemporalType.TIME)
-	@Column(name = "hora")
-	private Date hora;
+	public Long getId() { return id; }
 
-	public Date getFechaReserva() {
-		return FechaReserva;
+	public void setId(Long id) { this.id = id; }
+
+	public Date getFecha() {
+		return fecha;
 	}
 
-	public void setFechaReserva(Date fechaReserva) {
-		FechaReserva = fechaReserva;
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
 	}
 
 	public Nivel getNivel() {
@@ -84,12 +89,13 @@ public class DetalleTutoria implements Serializable {
 
 	public DetalleTutoria() { }
 
-	public DetalleTutoria(Date fechaReserva, Date hora,Nivel nivel, Unidad unidad, Tutoria tutoria, Tutor tutor) {
+	public DetalleTutoria(Long id,Date fecha, Date hora,Nivel nivel, Unidad unidad, Tutoria tutoria, Tutor tutor) {
+		this.id = id;
 		this.nivel = nivel;
 		this.unidad = unidad;
 		this.tutoria = tutoria;
 		this.tutor = tutor;
-		FechaReserva = fechaReserva;
+		this.fecha = fecha;
 		this.hora = hora;
 	}
 }

@@ -1,6 +1,7 @@
 package com.darkcode.apirest.services.services;
 
 import com.darkcode.apirest.DTO.ContratoDTO;
+import com.darkcode.apirest.DTO.RecordProduccion;
 import com.darkcode.apirest.models.entity.*;
 import com.darkcode.apirest.models.entity.composite.ContratoId;
 
@@ -9,6 +10,8 @@ import java.util.List;
 public interface IContratoService {
 
     public List<ContratoDTO> findAllContratoDto();
+
+    public List<RecordProduccion> recordProduccion();
 
     public ContratoDTO findContratoDtoById(ContratoId id);
 

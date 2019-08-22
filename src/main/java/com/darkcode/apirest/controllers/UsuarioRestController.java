@@ -18,11 +18,6 @@ public class UsuarioRestController {
 	@Autowired
 	private IUsuarioService usuarioService;
 
-	/*@GetMapping("/datosUsuario")
-	public List<Object> fecthByIdWithEmpleadoWithPersona(){
-		return usuarioService.fecthByIdWithEmpleadoWithPersona();
-	}*/
-
 	/**
 	 * Metodo para obtener unicamente el id,username,password,categoria de un usuario
 	 * Esto para la parte del login, no enviamos el objeto completo, sino los datos necesarios

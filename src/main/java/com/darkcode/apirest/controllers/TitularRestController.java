@@ -1,6 +1,8 @@
 package com.darkcode.apirest.controllers;
 
 import com.darkcode.apirest.ApiRestApplication;
+import com.darkcode.apirest.DTO.DatosAlumnos;
+import com.darkcode.apirest.DTO.DatosTitular;
 import com.darkcode.apirest.models.entity.Titular;
 import com.darkcode.apirest.services.services.ITitularService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,11 @@ public class TitularRestController {
 
     @GetMapping("/titulares/{id}")
     public Titular show(@PathVariable String id){ return titularService.findById(id); }
+
+    @GetMapping("/titulares-datos")
+    public List<DatosTitular> datosTitulares(){
+        return titularService.SP_GET_DATOS_TITULARES();
+    }
 
     @PostMapping("/titulares/{id}")
     @ResponseStatus(HttpStatus.CREATED)

@@ -5,7 +5,7 @@ import java.util.Date;
 public class ReservaTutoriaDTO {
 
     private String alumno_id;
-    private Date fecha_reserva;
+    private Long detalle_id;
     private boolean reprogramada;
     private boolean aprovada;
 
@@ -17,12 +17,12 @@ public class ReservaTutoriaDTO {
         this.alumno_id = alumno_id;
     }
 
-    public Date getFecha_reserva() {
-        return fecha_reserva;
+    public Long getDetalle_id() {
+        return detalle_id;
     }
 
-    public void setFecha_reserva(Date fecha_reserva) {
-        this.fecha_reserva = fecha_reserva;
+    public void setDetalle_id(Long detalle_id) {
+        this.detalle_id = detalle_id;
     }
 
     public boolean isReprogramada() {
@@ -43,9 +43,9 @@ public class ReservaTutoriaDTO {
 
     public ReservaTutoriaDTO(){}
 
-    public ReservaTutoriaDTO(String alumno_id, Date fecha_reserva, boolean reprogramada, boolean aprovada) {
+    public ReservaTutoriaDTO(String alumno_id, Long detalle_id, boolean reprogramada, boolean aprovada) {
         this.alumno_id = alumno_id;
-        this.fecha_reserva = fecha_reserva;
+        this.detalle_id = detalle_id;
         this.reprogramada = reprogramada;
         this.aprovada = aprovada;
     }

@@ -21,13 +21,6 @@ public class UsuarioServiceImplement implements IUsuarioService {
 	@Autowired
 	private IEmpleadoDao empleadoDao;
 
-
-	/*@Override
-	@Transactional(readOnly = true)
-	public List<Object> fecthByIdWithEmpleadoWithPersona() {
-		return (List<Object>)usuarioDao.fecthByIdWithEmpleadoWithPersona();
-	}*/
-
 	@Override
 	@Transactional(readOnly = true)
 	public List<UsuarioDTO> findAllUsers() {

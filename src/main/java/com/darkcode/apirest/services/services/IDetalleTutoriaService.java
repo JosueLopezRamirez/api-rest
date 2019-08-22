@@ -10,11 +10,11 @@ public interface IDetalleTutoriaService {
 
     public List<DetalleTutoriaDTO> findAll();
 
-    public DetalleTutoriaDTO findById(Date id);
+    public DetalleTutoriaDTO findById(Long id);
 
     public DetalleTutoriaDTO save(DetalleTutoria detalleTutoria);
 
-    public void delete(Date fecha,Date hora);
+    public void delete(Long id);
 
     public Nivel findNivelById(Long id);
 

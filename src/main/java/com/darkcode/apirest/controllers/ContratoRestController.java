@@ -2,6 +2,7 @@ package com.darkcode.apirest.controllers;
 
 import com.darkcode.apirest.ApiRestApplication;
 import com.darkcode.apirest.DTO.ContratoDTO;
+import com.darkcode.apirest.DTO.RecordProduccion;
 import com.darkcode.apirest.models.entity.Contrato;
 import com.darkcode.apirest.models.entity.composite.ContratoId;
 import com.darkcode.apirest.services.services.IContratoService;
@@ -40,13 +41,17 @@ public class ContratoRestController {
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
     		return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
 		}
-    	
-    	
+
     	if(contrato == null) {
     		response.put("mensaje", "El contrato con el ID".concat(id.toString().concat(" no existe en la base de datos~!")));
     		return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
     	}
         return new ResponseEntity<Contrato>(contrato, HttpStatus.OK);
+    }
+
+    @GetMapping("/contratos-record")
+    public List<RecordProduccion> recordProduccion(){
+        return contratoService.recordProduccion();
     }
 
     @PostMapping("/contratos")

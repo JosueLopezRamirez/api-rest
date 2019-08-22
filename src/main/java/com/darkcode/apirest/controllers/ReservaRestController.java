@@ -34,7 +34,7 @@ public class ReservaRestController {
         ReservaTutoria reserva = new ReservaTutoria(
                 new ReservaId(
                         reservaService.findAlumnoById(reservaDTO.getAlumno_id()),
-                        reservaService.findDetalleById(reservaDTO.getFecha_reserva())
+                        reservaService.findDetalleById(reservaDTO.getDetalle_id())
                 ),
                 reservaDTO.isReprogramada(),
                 reservaDTO.isAprovada()

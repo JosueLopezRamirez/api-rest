@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -39,7 +38,8 @@ public class DetalleTutoriaServiceImplement implements IDetalleTutoriaService {
             listaDetalle.forEach( detalleTutoria -> {
                 listaDto.add(
                         new DetalleTutoriaDTO(
-                                detalleTutoria.getFechaReserva(),
+                                detalleTutoria.getId(),
+                                detalleTutoria.getFecha(),
                                 detalleTutoria.getHora(),
                                 detalleTutoria.getNivel().getId(),
                                 detalleTutoria.getUnidad().getId(),
@@ -57,11 +57,12 @@ public class DetalleTutoriaServiceImplement implements IDetalleTutoriaService {
 
     @Override
     @Transactional(readOnly = true)
-    public DetalleTutoriaDTO findById(Date id) {
+    public DetalleTutoriaDTO findById(Long id) {
         DetalleTutoria detalleTutoria = detalleTutoriaDao.findById(id).orElse(null);
         if(detalleTutoria != null){
             return new DetalleTutoriaDTO(
-                    detalleTutoria.getFechaReserva(),
+                    detalleTutoria.getId(),
+                    detalleTutoria.getFecha(),
                     detalleTutoria.getHora(),
                     detalleTutoria.getNivel().getId(),
                     detalleTutoria.getUnidad().getId(),
@@ -80,7 +81,8 @@ public class DetalleTutoriaServiceImplement implements IDetalleTutoriaService {
         DetalleTutoria detalleTutoria = detalleTutoriaDao.save(detalle);
         if(detalleTutoria != null){
             return new DetalleTutoriaDTO(
-                    detalleTutoria.getFechaReserva(),
+                    detalleTutoria.getId(),
+                    detalleTutoria.getFecha(),
                     detalleTutoria.getHora(),
                     detalleTutoria.getNivel().getId(),
                     detalleTutoria.getUnidad().getId(),
@@ -94,8 +96,8 @@ public class DetalleTutoriaServiceImplement implements IDetalleTutoriaService {
 
     @Override
     @Transactional
-    public void delete(Date fecha,Date hora) {
-        detalleTutoriaDao.delete(fecha,hora);
+    public void delete(Long id) {
+        detalleTutoriaDao.deleteById(id);
     }
 
     @Override

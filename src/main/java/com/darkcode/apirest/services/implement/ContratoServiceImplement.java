@@ -1,6 +1,7 @@
 package com.darkcode.apirest.services.implement;
 
 import com.darkcode.apirest.DTO.ContratoDTO;
+import com.darkcode.apirest.DTO.RecordProduccion;
 import com.darkcode.apirest.models.DAO.*;
 import com.darkcode.apirest.models.entity.*;
 import com.darkcode.apirest.models.entity.composite.ContratoId;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -56,6 +58,30 @@ public class ContratoServiceImplement implements IContratoService {
             );
         }
         return contratoDTO;
+    }
+
+    @Override
+    @Transactional
+    public List<RecordProduccion> recordProduccion() {
+        List<Object[]> lista = contratoDao.SP_RECORD_PRODUCCION();
+        List<RecordProduccion> listaDevuelta = new ArrayList<>();
+        lista.forEach(item -> {
+            listaDevuelta.add(
+                    new RecordProduccion(
+                            (Date) item[0],
+                            (String) item[1],
+                            (float) item[2],
+                            (float) item[3],
+                            (float) item[4],
+                            (float) item[5],
+                            (String) item[6],
+                            (String) item[7],
+                            (String) item[8],
+                            (String) item[9]
+                    )
+            );
+        });
+        return listaDevuelta;
     }
 
     //Seleccionamos un contrato en formato POJO y lo pasamos a DTO para devolver un formato mas ligero

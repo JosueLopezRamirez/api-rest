@@ -8,8 +8,6 @@ import com.darkcode.apirest.DTO.UsuarioDTO;
 
 public interface IUsuarioService {
 
-	//public List<Object> fecthByIdWithEmpleadoWithPersona();
-
 	public List<UsuarioDTO> findAllUsers();
 
     public List<Usuario> findAll();

@@ -1,5 +1,6 @@
 package com.darkcode.apirest.services.services;
 
+import com.darkcode.apirest.DTO.DatosAlumnos;
 import com.darkcode.apirest.models.entity.Alumno;
 import com.darkcode.apirest.models.entity.Cliente;
 
@@ -14,6 +15,8 @@ public interface IAlumnoService {
     public Alumno save(Alumno alumno);
 
     public void delete(String id);
+
+    public List<DatosAlumnos> SP_GET_DATOS_ALUMNOS();
 
     public Cliente findClientById(Long id);
 }

@@ -7,7 +7,6 @@ import com.darkcode.apirest.services.services.IDetalleTutoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 
 @CrossOrigin(origins = {ApiRestApplication.FrontEnd})
@@ -24,13 +23,14 @@ public class DetalleTutoriaRestController {
     }
 
     @GetMapping("/detalle-tutoria/{id}")
-    public DetalleTutoriaDTO show(@PathVariable Date id){
+    public DetalleTutoriaDTO show(@PathVariable Long id){
         return detalleTutoriaService.findById(id);
     }
 
     @PostMapping("/detalle-tutoria")
     public DetalleTutoriaDTO create(@RequestBody DetalleTutoriaDTO detalleTutoriaDTO){
         DetalleTutoria detalleTutoria = new DetalleTutoria(
+                detalleTutoriaDTO.getId(),
                 detalleTutoriaDTO.getFecha(),
                 detalleTutoriaDTO.getHora(),
                 detalleTutoriaService.findNivelById(detalleTutoriaDTO.getNivel_id()),
@@ -41,8 +41,8 @@ public class DetalleTutoriaRestController {
         return detalleTutoriaService.save(detalleTutoria);
     }
 
-    @DeleteMapping("/detalle-tutoria")
-    public void delete(@RequestBody DetalleTutoria detalleTutoria){
-        detalleTutoriaService.delete(detalleTutoria.getFechaReserva(),detalleTutoria.getHora());
+    @DeleteMapping("/detalle-tutoria/{id}")
+    public void delete(@PathVariable Long id){
+        detalleTutoriaService.delete(id);
     }
 }

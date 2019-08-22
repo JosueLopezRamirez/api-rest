@@ -1,6 +1,7 @@
 package com.darkcode.apirest.controllers;
 
 import com.darkcode.apirest.ApiRestApplication;
+import com.darkcode.apirest.DTO.DatosAlumnos;
 import com.darkcode.apirest.models.entity.Alumno;
 import com.darkcode.apirest.services.services.IAlumnoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,11 @@ public class AlumnoRestController {
 
     @GetMapping("/alumnos/{id}")
     public Alumno show(@PathVariable String id){ return alumnoService.findById(id); }
+
+    @GetMapping("/alumnos-datos")
+    public List<DatosAlumnos> datosAlumnos(){
+        return alumnoService.SP_GET_DATOS_ALUMNOS();
+    }
 
     @PostMapping("/alumnos/{id}")
     @ResponseStatus(HttpStatus.CREATED)

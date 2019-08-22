@@ -40,7 +40,7 @@ public class ReservaServiceImplement implements IReservaService {
                     new ReservaTutoriaDTO(
                             //String alumno_id, Date fecha_reserva, boolean reprogramada, boolean aprovada
                             reservaTutoria.getId().getAlumno().getId(),
-                            reservaTutoria.getId().getDetalleTutoria().getFechaReserva(),
+                            reservaTutoria.getId().getDetalleTutoria().getId(),
                             reservaTutoria.isReprogramada(),
                             reservaTutoria.isAprobada()
                     )
@@ -57,7 +57,7 @@ public class ReservaServiceImplement implements IReservaService {
             return new ReservaTutoriaDTO(
                     //String alumno_id, Date fecha_reserva, boolean reprogramada, boolean aprovada
                     reserva.getId().getAlumno().getId(),
-                    reserva.getId().getDetalleTutoria().getFechaReserva(),
+                    reserva.getId().getDetalleTutoria().getId(),
                     reserva.isReprogramada(),
                     reserva.isAprobada()
             );
@@ -74,7 +74,7 @@ public class ReservaServiceImplement implements IReservaService {
             return new ReservaTutoriaDTO(
                     //String alumno_id, Date fecha_reserva, boolean reprogramada, boolean aprovada
                     reserva.getId().getAlumno().getId(),
-                    reserva.getId().getDetalleTutoria().getFechaReserva(),
+                    reserva.getId().getDetalleTutoria().getId(),
                     reserva.isReprogramada(),
                     reserva.isAprobada()
             );
@@ -97,7 +97,7 @@ public class ReservaServiceImplement implements IReservaService {
 
     @Override
     @Transactional(readOnly = true)
-    public DetalleTutoria findDetalleById(Date id) {
+    public DetalleTutoria findDetalleById(Long id) {
         return detalleDao.findById(id).orElse(null);
     }
 }
