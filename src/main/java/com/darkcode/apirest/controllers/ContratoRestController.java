@@ -1,6 +1,7 @@
 package com.darkcode.apirest.controllers;
 
-import com.darkcode.apirest.ApiRestApplication;
+
+import com.darkcode.apirest.BackendExcellenceApplication;
 import com.darkcode.apirest.DTO.ContratoDTO;
 import com.darkcode.apirest.DTO.RecordProduccion;
 import com.darkcode.apirest.models.entity.Contrato;
@@ -16,7 +17,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@CrossOrigin(origins = {ApiRestApplication.FrontEnd})
+@CrossOrigin(origins = {BackendExcellenceApplication.FrontEnd})
 @RestController
 @RequestMapping("/api")
 public class ContratoRestController {

@@ -1,7 +1,6 @@
 package com.darkcode.apirest.controllers;
 
-import com.darkcode.apirest.ApiRestApplication;
-import com.darkcode.apirest.DTO.DatosAlumnos;
+import com.darkcode.apirest.BackendExcellenceApplication;
 import com.darkcode.apirest.DTO.DatosTitular;
 import com.darkcode.apirest.models.entity.Titular;
 import com.darkcode.apirest.services.services.ITitularService;
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = {ApiRestApplication.FrontEnd})
+@CrossOrigin(origins = {BackendExcellenceApplication.FrontEnd})
 @RestController
 @RequestMapping("/api")
 public class TitularRestController {

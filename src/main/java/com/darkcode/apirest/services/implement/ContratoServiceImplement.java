@@ -68,23 +68,18 @@ public class ContratoServiceImplement implements IContratoService {
         lista.forEach(item -> {
             listaDevuelta.add(
                     new RecordProduccion(
-                            (Date) item[0],
-                            (String) item[1],
-                            (float) item[2],
-                            (float) item[3],
-                            (float) item[4],
-                            (float) item[5],
-                            (String) item[6],
-                            (String) item[7],
-                            (String) item[8],
-                            (String) item[9]
+                            (Date) item[0], (String) item[1],
+                            (String) item[2],(float) item[3],
+                            (float) item[4],(float) item[5],
+                            (float) item[6],(String) item[7],
+                            (String) item[8],(String) item[9],
+                            (String) item[10],/*(String) item[11]*/ null
                     )
             );
         });
         return listaDevuelta;
     }
 
-    //Seleccionamos un contrato en formato POJO y lo pasamos a DTO para devolver un formato mas ligero
     @Override
     @Transactional(readOnly = true)
     public ContratoDTO findContratoDtoById(ContratoId id) {
@@ -129,7 +124,6 @@ public class ContratoServiceImplement implements IContratoService {
         contratoDao.deleteById(id);
     }
 
-    //Metodos para obtener los id de los objetos que se integran por medio del id
     @Override
     @Transactional(readOnly = true)
     public Alumno findAlumnoById(String id) {

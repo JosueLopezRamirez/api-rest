@@ -1,7 +1,7 @@
 package com.darkcode.apirest.controllers;
 
 
-import com.darkcode.apirest.ApiRestApplication;
+import com.darkcode.apirest.BackendExcellenceApplication;
 import com.darkcode.apirest.DTO.MensualidadDTO;
 import com.darkcode.apirest.models.entity.Mensualidad;
 import com.darkcode.apirest.services.services.IMensualidadService;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = {ApiRestApplication.FrontEnd})
+@CrossOrigin(origins = {BackendExcellenceApplication.FrontEnd})
 @RestController
 @RequestMapping("/api")
 public class MensualidadRestController {

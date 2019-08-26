@@ -1,6 +1,5 @@
 package com.darkcode.apirest.controllers;
 
-import com.darkcode.apirest.ApiRestApplication;
 import com.darkcode.apirest.DTO.ReservaTutoriaDTO;
 import com.darkcode.apirest.models.entity.ReservaTutoria;
 import com.darkcode.apirest.models.entity.composite.ReservaId;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = {ApiRestApplication.FrontEnd})
 @RestController
 @RequestMapping("/api")
 public class ReservaRestController {

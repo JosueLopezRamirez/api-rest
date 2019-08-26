@@ -1,6 +1,6 @@
 package com.darkcode.apirest.controllers;
 
-import com.darkcode.apirest.ApiRestApplication;
+import com.darkcode.apirest.BackendExcellenceApplication;
 import com.darkcode.apirest.models.entity.Asesor;
 import com.darkcode.apirest.DTO.AsesorDTO;
 import com.darkcode.apirest.DTO.AsesorNames;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@CrossOrigin(origins = {ApiRestApplication.FrontEnd})
+@CrossOrigin(origins = {BackendExcellenceApplication.FrontEnd})
 @RestController
 @RequestMapping("/api")
 public class AsesorRestController {

@@ -1,6 +1,6 @@
 package com.darkcode.apirest.controllers;
 
-import com.darkcode.apirest.ApiRestApplication;
+import com.darkcode.apirest.BackendExcellenceApplication;
 import com.darkcode.apirest.models.entity.Grupo;
 import com.darkcode.apirest.DTO.GrupoDTO;
 import com.darkcode.apirest.services.services.IGrupoService;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = {ApiRestApplication.FrontEnd})
+@CrossOrigin(origins = {BackendExcellenceApplication.FrontEnd})
 @RestController
 @RequestMapping("/api")
 public class GrupoRestController {

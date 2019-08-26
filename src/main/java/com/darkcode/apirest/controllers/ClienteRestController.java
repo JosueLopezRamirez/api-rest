@@ -1,7 +1,8 @@
 package com.darkcode.apirest.controllers;
 
-import com.darkcode.apirest.ApiRestApplication;
+
 import com.darkcode.apirest.models.entity.Cliente;
+import com.darkcode.apirest.BackendExcellenceApplication;
 import com.darkcode.apirest.DTO.ClienteDTO;
 import com.darkcode.apirest.services.services.IClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = {ApiRestApplication.FrontEnd})
+@CrossOrigin(origins = {BackendExcellenceApplication.FrontEnd})
 @RestController
 @RequestMapping("/api")
 public class ClienteRestController {
