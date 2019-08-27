@@ -10,6 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 import com.darkcode.apirest.models.entity.composite.ContratoId;
 
@@ -31,6 +32,7 @@ public class Contrato implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	private PlanPago planPago;
 
+	@NotNull(message = "La fecha no puede ser vacio")
 	@Temporal(TemporalType.DATE)
 	private Date fechaContrato;
 

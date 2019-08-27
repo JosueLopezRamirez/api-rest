@@ -1,6 +1,7 @@
 package com.darkcode.apirest.services.implement;
 
 import com.darkcode.apirest.DTO.DetalleTutoriaDTO;
+import com.darkcode.apirest.DTO.DetalleTutoriaDatos;
 import com.darkcode.apirest.models.DAO.*;
 import com.darkcode.apirest.models.entity.*;
 import com.darkcode.apirest.services.services.IDetalleTutoriaService;
@@ -8,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -123,4 +126,21 @@ public class DetalleTutoriaServiceImplement implements IDetalleTutoriaService {
     public Tutor findTutorById(Long id) {
         return tutorDao.findById(id).orElse(null);
     }
+
+	@Override
+	@Transactional
+	public List<DetalleTutoriaDatos> SP_DETALLE_TUTORIA() {
+		List<Object[]> lista = detalleTutoriaDao.SP_DETALLE_TUTORIA();
+		List<DetalleTutoriaDatos> listaDevuelta = new ArrayList<>();
+		
+		lista.forEach(item -> {
+			listaDevuelta.add(
+					new DetalleTutoriaDatos(
+							(BigInteger)item[0],(Date) item[1],(Date) item[2],
+							(String) item[3], (String) item[4], (String) item[5],
+							(String) item[6])
+					);
+		});
+		return listaDevuelta;
+	}
 }

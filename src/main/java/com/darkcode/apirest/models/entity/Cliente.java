@@ -1,6 +1,7 @@
 package com.darkcode.apirest.models.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
@@ -22,6 +23,14 @@ public class Cliente implements Serializable {
 
 	@OneToOne(cascade = CascadeType.ALL, optional = false)
 	private Persona persona;
+
+	@Column(name = "estado",nullable = false)
+	private Boolean estado;
+
+	@PrePersist
+	public void persistEstado() {
+		this.estado = true;
+	}
 
 	public Long getId() {
 		return id;
@@ -55,12 +64,21 @@ public class Cliente implements Serializable {
 		this.persona = persona;
 	}
 
+	public Boolean getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Boolean estado) {
+		this.estado = estado;
+	}
+
 	// Constructor
 	public Cliente() {}
 
-	public Cliente(String direccion, String cedula, Persona persona) {
+	public Cliente(String direccion, String cedula, Persona persona,Boolean estado) {
 		Direccion = direccion;
 		Cedula = cedula;
 		this.persona = persona;
+		this.estado = estado;
 	}
 }

@@ -4,15 +4,15 @@ import java.math.BigInteger;
 
 public class DatosGreen {
 
-	private String id;
+	private BigInteger id;
 	private String telefono;
 	private String correo;
 	
-	public String getId() {
+	public BigInteger getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(BigInteger id) {
 		this.id = id;
 	}
 
@@ -34,7 +34,8 @@ public class DatosGreen {
 
 	public DatosGreen() {}
 
-	public DatosGreen(String id, String telefono, String correo) {
+	public DatosGreen(BigInteger id, String telefono, String correo) {
+		super();
 		this.id = id;
 		this.telefono = telefono;
 		this.correo = correo;

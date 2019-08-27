@@ -3,6 +3,7 @@ package com.darkcode.apirest.controllers;
 
 import com.darkcode.apirest.BackendExcellenceApplication;
 import com.darkcode.apirest.DTO.DetalleTutoriaDTO;
+import com.darkcode.apirest.DTO.DetalleTutoriaDatos;
 import com.darkcode.apirest.models.entity.DetalleTutoria;
 import com.darkcode.apirest.services.services.IDetalleTutoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,11 @@ public class DetalleTutoriaRestController {
     @GetMapping("/detalle-tutoria")
     public List<DetalleTutoriaDTO> select(){
         return detalleTutoriaService.findAll();
+    }
+    
+    @GetMapping("/detalle-tutoria-datos")
+    public List<DetalleTutoriaDatos> selectDatos(){
+        return detalleTutoriaService.SP_DETALLE_TUTORIA();
     }
 
     @GetMapping("/detalle-tutoria/{id}")

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "detalle_tutoria")
@@ -15,10 +16,12 @@ public class DetalleTutoria implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotNull(message = "No puede ser vacio")
 	@Temporal(TemporalType.DATE)
 	@Column(name = "fecha")
 	private Date fecha;
 
+	@NotNull(message = "La fecha no puede ser vacio")
 	@Temporal(TemporalType.TIME)
 	@Column(name = "hora")
 	private Date hora;
