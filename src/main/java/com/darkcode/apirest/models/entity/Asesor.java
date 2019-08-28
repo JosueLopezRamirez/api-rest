@@ -15,15 +15,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "asesor")
-//@NamedStoredProcedureQueries({
-//	@NamedStoredProcedureQuery(
-//	name = "findAsesors",
-//	procedureName = "GET_ASESORES_DATOS_PERSONALES",
-//	resultClasses = {Asesor.class})
-//})
 public class Asesor implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 12L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

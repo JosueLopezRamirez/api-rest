@@ -6,16 +6,15 @@ import com.darkcode.apirest.DTO.ContratoDTO;
 import com.darkcode.apirest.DTO.RecordProduccion;
 import com.darkcode.apirest.models.entity.Contrato;
 import com.darkcode.apirest.services.services.IContratoService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 @CrossOrigin(origins = {BackendExcellenceApplication.FrontEnd})
 @RestController
@@ -24,6 +23,8 @@ public class ContratoRestController {
 
     @Autowired
     private IContratoService contratoService;
+
+    Logger log = LoggerFactory.getLogger(ContratoRestController.class);
 
     @GetMapping("/contratos")
     public List<Contrato> select(){
@@ -57,8 +58,9 @@ public class ContratoRestController {
     @PostMapping("/contratos")
     @ResponseStatus(HttpStatus.CREATED)
     public Contrato create(@RequestBody ContratoDTO contratoDTO){
+        log.info("Contrato Enviado "+contratoDTO.toString());
         Contrato contrato = new Contrato();
-        //Asignando la llave compuesta a nuestra entidad proveniente de una trama sin formato POJO-JPQL
+        //
         contrato.setAlumno(contratoService.findAlumnoById(contratoDTO.getTitular_id()));
         contrato.setTitular(contratoService.findTitularById(contratoDTO.getTitular_id()));
         contrato.setAsesor(contratoService.findAsesorById(contratoDTO.getAsesor_id()));

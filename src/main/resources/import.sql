@@ -36,3 +36,99 @@ insert into tutor (nombre) values ('Julio');
 insert into tutoria (descripcion) values ('Unit Review');
 insert into unidad (descripcion) values ('Verbo to Be');
 insert into nivel (descripcion) values ('Basico');
+
+call insert_tutor('Ana Janci');
+call insert_tutor('Mario Zacasa');
+
+call insert_tutoria('Conversation Club');
+call insert_tutoria('Pronuntiation Workshop');
+call insert_tutoria('Reading Workshop');
+call insert_tutoria('Writing Workshop');
+
+call insert_nivel('Intemedio');
+call insert_nivel('Avanzado');
+
+call insert_detalle_tutoria('2019-08-29','13:00:00',1,1,1,1);
+call insert_detalle_tutoria('2019-08-29','14:00:00',1,2,2,1);
+call insert_detalle_tutoria('2019-08-29','15:00:00',2,1,1,1);
+call insert_detalle_tutoria('2019-08-29','16:00:00',2,3,3,1);
+call insert_detalle_tutoria('2019-08-29','17:00:00',3,2,4,1);
+call insert_detalle_tutoria('2019-08-30','07:00:00',2,3,3,1);
+call insert_detalle_tutoria('2019-08-30','08:00:00',2,1,1,1);
+call insert_detalle_tutoria('2019-08-30','09:00:00',3,3,2,1);
+call insert_detalle_tutoria('2019-08-30','10:00:00',3,2,3,1);
+call insert_detalle_tutoria('2019-08-30','11:00:00',1,2,4,1);
+
+alter table cliente modify estado boolean default true;
+-- -------------------------------------------------------------------------------
+call insert_persona('Shoji Uri','Delgado');
+call insert_cliente('','',last_insert_id(),true);
+call insert_telefono('77201569',1);
+call insert_correo('josue@gmail.com',1);
+call insert_titular('00001',7000,'','','',1);
+call insert_alumno('00001',1,true,1);
+call insert_contrato('2019-08-25','00001','00001',1,3,4,6);
+-- -------------------------------------------------------------------------------
+call insert_persona('Jeffry Antonio','Mejia Ocampo');
+call insert_cliente('','',last_insert_id(),true);
+call insert_telefono('88856492',2);
+call insert_correo('jeffry@gmail.com',2);
+call insert_titular('00002',7000,'','','',2);
+call insert_alumno('00002',1,true,2);
+call insert_contrato('2019-08-25','00002','00002',1,3,4,7);
+-- -------------------------------------------------------------------------------
+call insert_persona('Stephanie del Rosario','Silva Aguilar');
+call insert_cliente('','',last_insert_id(),true);
+call insert_telefono('88775968',3);
+call insert_correo('steph@gmail.com',3);
+call insert_titular('00003',7000,'','','',3);
+call insert_alumno('00003',1,true,3);
+call insert_contrato('2019-08-23','00003','00003',1,2,3,5);
+-- -------------------------------------------------------------------------------
+call insert_persona('Michael Alejandro','Garcia Romero');
+call insert_cliente('','',last_insert_id(),true);
+call insert_telefono('88556981',4);
+call insert_correo('michael@gmail.com',4);
+call insert_titular('00004',7000,'','','',4);
+call insert_alumno('00004',1,true,4);
+call insert_contrato('2019-08-24','00004','00004',1,2,3,5);
+-- -------------------------------------------------------------------------------
+call insert_persona('Ana Maria','Aguilar');
+call insert_cliente('','',last_insert_id(),true);
+call insert_telefono('88326984',5);
+call insert_correo('ana_maria@gmail.com',5);
+call insert_titular('00005',8500,'','','',5);
+call insert_alumno('00005',1,true,5);
+call insert_contrato('2019-08-24','00005','00005',1,1,4,7);
+-- -------------------------------------------------------------------------------
+call insert_persona('Gerald José','Poveda Sánchez');
+call insert_cliente('','',last_insert_id(),true);
+call insert_telefono('77504896',6);
+call insert_correo('geralsanchez@gmail.com',6);
+call insert_titular('00006',8500,'','','',6);
+call insert_alumno('00006',1,true,6);
+call insert_contrato('2019-08-24','00006','00006',1,1,2,2);
+-- -------------------------------------------------------------------------------
+call insert_persona('Maria Esperanza','Mendoza Arce');
+call insert_cliente('','',last_insert_id(),true);
+call insert_telefono('82501496',7);
+call insert_correo('maria@gmail.com',7);
+call insert_titular('00007',9000,'','','',7);
+call insert_alumno('00007',1,true,7);
+call insert_contrato('2019-08-25','00007','00007',1,1,4,1);
+-- -------------------------------------------------------------------------------
+call insert_persona('Teresa Karina','Gaitan Hernandez');
+call insert_cliente('','',last_insert_id(),true);
+call insert_telefono('22252383',8);
+call insert_correo('teresagaitan@gmail.com',8);
+call insert_titular('00008',9000,'','','',8);
+call insert_alumno('00008',1,true,8);
+call insert_contrato('2019-08-25','00008','00008',1,1,4,3);
+-- -------------------------------------------------------------------------------
+call insert_persona('Paula Josefa','Guido Molina');
+call insert_cliente('','',last_insert_id(),true);
+call insert_telefono('87546328',9);
+call insert_correo('paulaguido@gmail.com',9);
+call insert_titular('00009',10000,'','','',9);
+call insert_alumno('00009',1,true,9);
+call insert_contrato('2019-08-26','00009','00009',1,1,2,1);

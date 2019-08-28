@@ -79,4 +79,17 @@ public class ContratoDTO {
         this.forma_id = forma_id;
         this.fechaContrato = fechaContrato;
     }
+
+    @Override
+    public String toString() {
+        return "ContratoDTO{" +
+                "alumno_id='" + alumno_id + '\'' +
+                ", titular_id='" + titular_id + '\'' +
+                ", asesor_id=" + asesor_id +
+                ", estrategia_id=" + estrategia_id +
+                ", plan_id=" + plan_id +
+                ", forma_id=" + forma_id +
+                ", fechaContrato=" + fechaContrato +
+                '}';
+    }
 }

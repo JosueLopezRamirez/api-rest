@@ -35,7 +35,6 @@ public class AsesorRestController {
     public List<AsesorNames> findAllNames(){
     	return asesorService.buscarAsesorNombreApellido();
     }
-    
 
     @PostMapping("/asesores")
     @ResponseStatus(HttpStatus.CREATED)

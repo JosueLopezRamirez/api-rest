@@ -159,9 +159,4 @@ public class ContratoServiceImplement implements IContratoService {
         return formaDao.findById(id).orElse(null);
     }
 
-//    @Override
-//    @Transactional
-//    public Object[] INSERT_CONTRATO(String fecha, String titular_id, String alumno_id, Long asesor, Long estrategia, Long forma, Long plan) {
-//        return contratoDao.INSERT_CONTRATO(fecha,titular_id,alumno_id,asesor,estrategia,forma,plan);
-//    }
 }
