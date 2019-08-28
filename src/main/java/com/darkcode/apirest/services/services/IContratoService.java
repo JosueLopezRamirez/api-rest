@@ -3,9 +3,7 @@ package com.darkcode.apirest.services.services;
 import com.darkcode.apirest.DTO.ContratoDTO;
 import com.darkcode.apirest.DTO.RecordProduccion;
 import com.darkcode.apirest.models.entity.*;
-import com.darkcode.apirest.models.entity.composite.ContratoId;
 
-import java.util.Date;
 import java.util.List;
 
 public interface IContratoService {
@@ -14,15 +12,15 @@ public interface IContratoService {
 
     public List<RecordProduccion> recordProduccion();
 
-    public ContratoDTO findContratoDtoById(ContratoId id);
+    public ContratoDTO findContratoDtoById(Long id);
 
     public List<Contrato> findAll();
 
-    public Contrato findById(ContratoId id);
+    public Contrato findById(Long id);
 
     public Contrato save(Contrato contrato);
 
-    public void delete(ContratoId id);
+    public void delete(Long id);
 
     public Alumno findAlumnoById(String id);
 

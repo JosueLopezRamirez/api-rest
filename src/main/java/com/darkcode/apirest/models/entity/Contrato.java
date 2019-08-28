@@ -3,16 +3,8 @@ package com.darkcode.apirest.models.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-
-import com.darkcode.apirest.models.entity.composite.ContratoId;
 
 @Entity
 @Table(name = "contrato")
@@ -20,8 +12,9 @@ public class Contrato implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@EmbeddedId
-	private ContratoId contratoId;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	private Estrategia estrategia;
@@ -32,17 +25,50 @@ public class Contrato implements Serializable {
 	@ManyToOne(fetch = FetchType.EAGER, optional = false)
 	private PlanPago planPago;
 
+	@Basic
 	@NotNull(message = "La fecha no puede ser vacio")
 	@Temporal(TemporalType.DATE)
 	private Date fechaContrato;
 
-	// Getters and Setters
-	public ContratoId getContratoId() {
-		return contratoId;
+	@ManyToOne(optional = false, fetch = FetchType.EAGER)
+	private Asesor asesor;
+
+	@ManyToOne(optional = false, fetch = FetchType.EAGER)
+	private Titular titular;
+
+	@ManyToOne(optional = false, fetch = FetchType.EAGER)
+	private Alumno alumno;
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setContratoId(ContratoId contratoId) {
-		this.contratoId = contratoId;
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Asesor getAsesor() {
+		return asesor;
+	}
+
+	public void setAsesor(Asesor asesor) {
+		this.asesor = asesor;
+	}
+
+	public Titular getTitular() {
+		return titular;
+	}
+
+	public void setTitular(Titular titular) {
+		this.titular = titular;
+	}
+
+	public Alumno getAlumno() {
+		return alumno;
+	}
+
+	public void setAlumno(Alumno alumno) {
+		this.alumno = alumno;
 	}
 
 	public Date getFechaContrato() {
@@ -80,13 +106,14 @@ public class Contrato implements Serializable {
 	public Contrato() {
 	}
 
-	public Contrato(ContratoId contratoId, Estrategia estrategia, FormaPago formaPago, PlanPago planPago,
-			Date fechaContrato) {
-		super();
-		this.contratoId = contratoId;
+	public Contrato(Long id,Date fechaContrato, Asesor asesor, Titular titular, Alumno alumno,Estrategia estrategia, FormaPago formaPago, PlanPago planPago) {
+		this.id = id;
 		this.estrategia = estrategia;
 		this.formaPago = formaPago;
 		this.planPago = planPago;
 		this.fechaContrato = fechaContrato;
+		this.asesor = asesor;
+		this.titular = titular;
+		this.alumno = alumno;
 	}
 }

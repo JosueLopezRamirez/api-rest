@@ -4,7 +4,6 @@ import com.darkcode.apirest.DTO.ContratoDTO;
 import com.darkcode.apirest.DTO.RecordProduccion;
 import com.darkcode.apirest.models.DAO.*;
 import com.darkcode.apirest.models.entity.*;
-import com.darkcode.apirest.models.entity.composite.ContratoId;
 import com.darkcode.apirest.services.services.IContratoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,9 +46,9 @@ public class ContratoServiceImplement implements IContratoService {
         for(Contrato con: contrato){
             contratoDTO.add(
                     new ContratoDTO(
-                            con.getContratoId().getAlumno().getId(),
-                            con.getContratoId().getTitular().getId(),
-                            con.getContratoId().getAsesor().getId(),
+                            con.getAlumno().getId(),
+                            con.getTitular().getId(),
+                            con.getAsesor().getId(),
                             con.getEstrategia().getId(),
                             con.getPlanPago().getId(),
                             con.getFormaPago().getId(),
@@ -82,13 +81,13 @@ public class ContratoServiceImplement implements IContratoService {
 
     @Override
     @Transactional(readOnly = true)
-    public ContratoDTO findContratoDtoById(ContratoId id) {
+    public ContratoDTO findContratoDtoById(Long id) {
         Contrato con = contratoDao.findById(id).orElse(null);
         if(con != null){
             ContratoDTO contratoDto = new ContratoDTO();
-            contratoDto.setAlumno_id(con.getContratoId().getAlumno().getId());
-            contratoDto.setTitular_id(con.getContratoId().getTitular().getId());
-            contratoDto.setAsesor_id(con.getContratoId().getAsesor().getId());
+            contratoDto.setAlumno_id(con.getAlumno().getId());
+            contratoDto.setTitular_id(con.getTitular().getId());
+            contratoDto.setAsesor_id(con.getAsesor().getId());
             contratoDto.setEstrategia_id(con.getEstrategia().getId());
             contratoDto.setPlan_id(con.getPlanPago().getId());
             contratoDto.setForma_id(con.getFormaPago().getId());
@@ -108,7 +107,7 @@ public class ContratoServiceImplement implements IContratoService {
 
     @Override
     @Transactional(readOnly = true)
-    public Contrato findById(ContratoId id) {
+    public Contrato findById(Long id) {
         return contratoDao.findById(id).orElse(null);
     }
 
@@ -120,7 +119,7 @@ public class ContratoServiceImplement implements IContratoService {
 
     @Override
     @Transactional
-    public void delete(ContratoId id) {
+    public void delete(Long id) {
         contratoDao.deleteById(id);
     }
 

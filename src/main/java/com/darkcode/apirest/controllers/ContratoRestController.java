@@ -5,7 +5,6 @@ import com.darkcode.apirest.BackendExcellenceApplication;
 import com.darkcode.apirest.DTO.ContratoDTO;
 import com.darkcode.apirest.DTO.RecordProduccion;
 import com.darkcode.apirest.models.entity.Contrato;
-import com.darkcode.apirest.models.entity.composite.ContratoId;
 import com.darkcode.apirest.services.services.IContratoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @CrossOrigin(origins = {BackendExcellenceApplication.FrontEnd})
 @RestController
@@ -31,15 +31,14 @@ public class ContratoRestController {
     }
 
     @GetMapping("/contratos/{id}")
-    public ResponseEntity<?> show(@PathVariable ContratoId id){
+    public ResponseEntity<?> show(@PathVariable Long id){
     	Contrato contrato = null;
     	Map<String, Object> response = new HashMap<>();
-    	
     	try {
     		contrato = contratoService.findById(id);
 		} catch (DataAccessException e) {
 			response.put("mensaje", "Error al realizar la consulta a la base de datos!");
-			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
+			response.put("error", Objects.requireNonNull(e.getMessage()).concat(": ").concat(e.getMostSpecificCause().getMessage()));
     		return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
 		}
 
@@ -60,13 +59,9 @@ public class ContratoRestController {
     public Contrato create(@RequestBody ContratoDTO contratoDTO){
         Contrato contrato = new Contrato();
         //Asignando la llave compuesta a nuestra entidad proveniente de una trama sin formato POJO-JPQL
-        contrato.setContratoId(
-                new ContratoId(
-                        contratoService.findAsesorById(contratoDTO.getAsesor_id()),
-                        contratoService.findTitularById(contratoDTO.getTitular_id()),
-                        contratoService.findAlumnoById(contratoDTO.getAlumno_id())
-                )
-        );
+        contrato.setAlumno(contratoService.findAlumnoById(contratoDTO.getTitular_id()));
+        contrato.setTitular(contratoService.findTitularById(contratoDTO.getTitular_id()));
+        contrato.setAsesor(contratoService.findAsesorById(contratoDTO.getAsesor_id()));
         contrato.setEstrategia(contratoService.findEstrategiaById(contratoDTO.getEstrategia_id()));
         contrato.setPlanPago(contratoService.findPlanById(contratoDTO.getPlan_id()));
         contrato.setEstrategia(contratoService.findEstrategiaById(contratoDTO.getEstrategia_id()));
@@ -76,9 +71,9 @@ public class ContratoRestController {
         return contratoService.save(contrato);
     }
 
-    @DeleteMapping("/contratos")
+    @DeleteMapping("/contratos/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@RequestBody ContratoId id){
+    public void delete(@PathVariable Long id){
         contratoService.delete(id);
     }
 }
