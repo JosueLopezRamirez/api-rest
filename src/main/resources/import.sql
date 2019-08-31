@@ -132,3 +132,14 @@ call insert_correo('paulaguido@gmail.com',9);
 call insert_titular('00009',10000,'','','',9);
 call insert_alumno('00009',1,true,9);
 call insert_contrato('2019-08-26','00009','00009',1,1,2,1);
+-- ----------------------------------------------------------------------------------
+-- Alumnos que tienen reservas realizadas--------------------------------------------
+-- ----------------------------------------------------------------------------------
+call INSERT_RESERVA_TUTORIA('00001',1,false,false);
+call INSERT_RESERVA_TUTORIA('00002',1,false,false);
+call INSERT_RESERVA_TUTORIA('00003',1,false,false);
+call INSERT_RESERVA_TUTORIA('00001',2,false,false);
+call INSERT_RESERVA_TUTORIA('00003',2,false,false);
+call INSERT_RESERVA_TUTORIA('00004',2,false,false);
+call INSERT_RESERVA_TUTORIA('00006',2,false,false);
+call INSERT_RESERVA_TUTORIA('00007',2,false,false);

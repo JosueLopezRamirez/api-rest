@@ -49,4 +49,14 @@ public class ReservaTutoriaDTO {
         this.reprogramada = reprogramada;
         this.aprovada = aprovada;
     }
+
+    @Override
+    public String toString() {
+        return "ReservaTutoriaDTO{" +
+                "alumno_id='" + alumno_id + '\'' +
+                ", detalle_id=" + detalle_id +
+                ", reprogramada=" + reprogramada +
+                ", aprovada=" + aprovada +
+                '}';
+    }
 }
