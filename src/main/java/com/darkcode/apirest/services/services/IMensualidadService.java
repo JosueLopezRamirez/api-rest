@@ -11,7 +11,7 @@ public interface IMensualidadService {
 
     public MensualidadDTO findById(Long id);
 
-    public MensualidadDTO save(Mensualidad mensualidad);
+    public MensualidadDTO save(MensualidadDTO MensualidadDTO);
 
     public void delete(Long id);
 

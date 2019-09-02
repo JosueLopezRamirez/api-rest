@@ -31,8 +31,14 @@ public class MensualidadRestController {
 
     @PostMapping("/mensualidades")
     @ResponseStatus(HttpStatus.CREATED)
-    public MensualidadDTO create(@RequestBody Mensualidad mensualidad){
-        return mensualidadService.save(mensualidad);
+    public MensualidadDTO create(@RequestBody MensualidadDTO mensualidadDTO){
+        return mensualidadService.save(mensualidadDTO);
+    }
+
+    @PutMapping("/mensualidades/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public MensualidadDTO update(@RequestBody MensualidadDTO mensualidadDTO){
+        return mensualidadService.save(mensualidadDTO);
     }
 
     @DeleteMapping("/mensualidades")

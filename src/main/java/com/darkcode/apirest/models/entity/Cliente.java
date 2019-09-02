@@ -32,45 +32,25 @@ public class Cliente implements Serializable {
 		this.estado = true;
 	}
 
-	public Long getId() {
-		return id;
-	}
+	public Long getId() { return id; }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+	public void setId(Long id) { this.id = id; }
 
-	public String getDireccion() {
-		return Direccion;
-	}
+	public String getDireccion() { return Direccion; }
 
-	public void setDireccion(String direccion) {
-		Direccion = direccion;
-	}
+	public void setDireccion(String direccion) { Direccion = direccion; }
 
-	public String getCedula() {
-		return Cedula;
-	}
+	public String getCedula() { return Cedula; }
 
-	public void setCedula(String cedula) {
-		Cedula = cedula;
-	}
+	public void setCedula(String cedula) { Cedula = cedula; }
 
-	public Persona getPersona() {
-		return persona;
-	}
+	public Persona getPersona() { return persona; }
 
-	public void setPersona(Persona persona) {
-		this.persona = persona;
-	}
+	public void setPersona(Persona persona) { this.persona = persona; }
 
-	public Boolean getEstado() {
-		return estado;
-	}
+	public Boolean getEstado() { return estado; }
 
-	public void setEstado(Boolean estado) {
-		this.estado = estado;
-	}
+	public void setEstado(Boolean estado) { this.estado = estado; }
 
 	// Constructor
 	public Cliente() {}

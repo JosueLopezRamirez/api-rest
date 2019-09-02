@@ -80,19 +80,17 @@ public class MensualdiadServiceImplement implements IMensualidadService {
 
     @Override
     @Transactional
-    public MensualidadDTO save(Mensualidad mensualidad) {
-        mensualidadDao.save(mensualidad);
-        return new MensualidadDTO(
-                mensualidad.getId(),
-                mensualidad.getTitular().getId(),
-                mensualidad.getCobrador().getId(),
-                mensualidad.getPlanPago().getId(),
-                mensualidad.getForma().getId(),
-                mensualidad.getFechaPago(),
-                mensualidad.getValorPagar(),
-                mensualidad.getDiasMora(),
-                mensualidad.getSaldoPendiente()
-        );
+    public MensualidadDTO save(MensualidadDTO mensualidadDTO) {
+        Mensualidad mensualidad = new Mensualidad();
+        mensualidad.setCobrador(findCobradorById(mensualidadDTO.getCobrador_id()));
+        mensualidad.setDiasMora((short)mensualidadDTO.getDias_mora());
+        mensualidad.setFechaPago(mensualidadDTO.getFecha_pago());
+        mensualidad.setForma(findFormaById(mensualidadDTO.getForma_id()));
+        mensualidad.setPlanPago(findPlanById(mensualidadDTO.getPlan_id()));
+        mensualidad.setSaldoPendiente(mensualidadDTO.getSaldo_pendiente());
+        mensualidad.setTitular(findTitularById(mensualidadDTO.getTitular_id()));
+        mensualidad.setValorPagar(mensualidadDTO.getValor_pagar());
+        return (mensualidadDao.save(mensualidad)!=null)?mensualidadDTO:null;
     }
 
     @Override

@@ -1,6 +1,6 @@
-INSERT INTO Persona (nombre, apellido) VALUES ('Josue', 'Lopez');
-INSERT INTO Empleado (persona_id, salario) VALUES (last_insert_id(), 560.7);
-INSERT INTO Usuario (empleado_id, username, password, categoria) VALUES (last_insert_id(), 'josue_lopez', 'pass123', 0);
+INSERT INTO Persona (nombre, apellido) VALUES ('Delmy', 'Cornelio');
+INSERT INTO Empleado (persona_id,salario) VALUES (last_insert_id(),1000);
+INSERT INTO Usuario (empleado_id, username, password, categoria) VALUES (last_insert_id(), 'delmy_cornelio', 'delmy123', 0);
 
 INSERT INTO organizacion (nombre_organizacion) VALUES ('Lobos');
 INSERT INTO grupo (nombre_grupo, organizacion_id) VALUES ('Rojos',1);
@@ -64,7 +64,7 @@ alter table cliente modify estado boolean default true;
 call insert_persona('Shoji Uri','Delgado');
 call insert_cliente('','',last_insert_id(),true);
 call insert_telefono('77201569',1);
-call insert_correo('josue@gmail.com',1);
+call insert_correo('shoji_uri@gmail.com',1);
 call insert_titular('00001',7000,'','','',1);
 call insert_alumno('00001',1,true,1);
 call insert_contrato('2019-08-25','00001','00001',1,3,4,6);
@@ -141,5 +141,3 @@ call INSERT_RESERVA_TUTORIA('00003',1,false,false);
 call INSERT_RESERVA_TUTORIA('00001',2,false,false);
 call INSERT_RESERVA_TUTORIA('00003',2,false,false);
 call INSERT_RESERVA_TUTORIA('00004',2,false,false);
-call INSERT_RESERVA_TUTORIA('00006',2,false,false);
-call INSERT_RESERVA_TUTORIA('00007',2,false,false);

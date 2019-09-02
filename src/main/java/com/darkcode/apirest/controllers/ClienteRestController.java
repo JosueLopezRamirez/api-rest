@@ -40,6 +40,7 @@ public class ClienteRestController {
     public Cliente update(@RequestBody ClienteDTO clienteDTO, @PathVariable Long id){
         Cliente clienteActual = clienteService.findById(id);
         clienteActual.setDireccion(clienteDTO.getDireccion());
+        clienteActual.setEstado(clienteDTO.isEstado());
         return clienteService.save(clienteActual);
     }
 
