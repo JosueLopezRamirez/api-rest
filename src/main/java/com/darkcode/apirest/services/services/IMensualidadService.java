@@ -1,8 +1,10 @@
 package com.darkcode.apirest.services.services;
 
 import com.darkcode.apirest.DTO.MensualidadDTO;
+import com.darkcode.apirest.DTO.PagosPendientes;
 import com.darkcode.apirest.models.entity.*;
 
+import java.util.Date;
 import java.util.List;
 
 public interface IMensualidadService {
@@ -22,4 +24,8 @@ public interface IMensualidadService {
     public PlanPago findPlanById(Long id);
 
     public FormaPago findFormaById(Long id);
+
+    public List<PagosPendientes> SP_MENSUALIDAD_PENDIENTES(Date fecha_inicio, Date fecha_fin, Date fecha_actual);
+
+    public List<PagosPendientes> SP_MENSUALIDAD_ATRASADOS();
 }

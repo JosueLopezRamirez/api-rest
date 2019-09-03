@@ -1,6 +1,7 @@
 package com.darkcode.apirest.services.implement;
 
 import com.darkcode.apirest.DTO.MensualidadDTO;
+import com.darkcode.apirest.DTO.PagosPendientes;
 import com.darkcode.apirest.models.DAO.*;
 import com.darkcode.apirest.models.entity.*;
 import com.darkcode.apirest.services.services.IMensualidadService;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -121,5 +123,29 @@ public class MensualdiadServiceImplement implements IMensualidadService {
     @Transactional(readOnly = true)
     public FormaPago findFormaById(Long id) {
         return formaDao.findById(id).orElse(null);
+    }
+
+    @Override
+    @Transactional
+    public List<PagosPendientes> SP_MENSUALIDAD_PENDIENTES(Date fecha_inicio, Date fecha_fin, Date fecha_actual) {
+        List<Object[]> lista = mensualidadDao.SP_MENSUALIDAD_PENDIENTES(fecha_inicio,fecha_fin,fecha_actual);
+        List<PagosPendientes> listaDevuelta = new ArrayList<>();
+
+        lista.forEach(item -> {
+            listaDevuelta.add(new PagosPendientes((String)item[0],(String)item[1],(Date)item[2],(float)item[3],(float)item[4]));
+        });
+        return listaDevuelta;
+    }
+
+    @Override
+    @Transactional
+    public List<PagosPendientes> SP_MENSUALIDAD_ATRASADOS() {
+        List<Object[]> lista = mensualidadDao.SP_MENSUALIDAD_ATRASADOS();
+        List<PagosPendientes> listaDevuelta = new ArrayList<>();
+
+        lista.forEach(item -> {
+            listaDevuelta.add(new PagosPendientes((String)item[0],(String)item[1],(Date)item[2],(float)item[3],(float)item[4]));
+        });
+        return listaDevuelta;
     }
 }

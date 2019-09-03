@@ -51,6 +51,8 @@ public class Mensualidad implements Serializable {
 	@Column(name = "saldo_pendiente", insertable = true, updatable = true, nullable = true)
 	private float saldoPendiente;
 
+	private boolean pagado;
+
 	public Long getId() {
 		return Id;
 	}
@@ -123,6 +125,14 @@ public class Mensualidad implements Serializable {
 		this.saldoPendiente = saldoPendiente;
 	}
 
+	public boolean getPagado() {
+		return pagado;
+	}
+
+	public void setPagado(boolean pagado) {
+		this.pagado = pagado;
+	}
+
 	public Mensualidad() {}
 
 	public Mensualidad(Long id, Titular titular, Cobrador cobrador, PlanPago planPago, FormaPago forma, Date fechaPago, float valorPagar, short diasMora, float saldoPendiente) {
@@ -136,5 +146,10 @@ public class Mensualidad implements Serializable {
 		ValorPagar = valorPagar;
 		this.diasMora = diasMora;
 		this.saldoPendiente = saldoPendiente;
+		this.pagado = false;
+	}
+
+	public Mensualidad(boolean pagado){
+		this.pagado = pagado;
 	}
 }

@@ -3,8 +3,12 @@ package com.darkcode.apirest.controllers;
 
 import com.darkcode.apirest.BackendExcellenceApplication;
 import com.darkcode.apirest.DTO.MensualidadDTO;
+import com.darkcode.apirest.DTO.Pago;
+import com.darkcode.apirest.DTO.PagosPendientes;
 import com.darkcode.apirest.models.entity.Mensualidad;
 import com.darkcode.apirest.services.services.IMensualidadService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +22,8 @@ public class MensualidadRestController {
 
     @Autowired
     private IMensualidadService mensualidadService;
+
+    Logger log = LoggerFactory.getLogger(MensualidadRestController.class);
 
     @GetMapping("/mensualidades")
     public List<MensualidadDTO> select(){
@@ -35,15 +41,38 @@ public class MensualidadRestController {
         return mensualidadService.save(mensualidadDTO);
     }
 
-    @PutMapping("/mensualidades/{id}")
+    @PostMapping("/mensualidades-pendientes")
     @ResponseStatus(HttpStatus.CREATED)
-    public MensualidadDTO update(@RequestBody MensualidadDTO mensualidadDTO){
-        return mensualidadService.save(mensualidadDTO);
+    public List<PagosPendientes> pendientes(@RequestBody Pago pago){
+        log.info(pago.toString());
+        return mensualidadService.SP_MENSUALIDAD_PENDIENTES(pago.getFecha_inicio(),pago.getFecha_fin(),pago.getFecha_actual());
     }
 
-    @DeleteMapping("/mensualidades")
+    @GetMapping("/mensualidades-atrasados")
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<PagosPendientes> atrasados(){
+        return mensualidadService.SP_MENSUALIDAD_ATRASADOS();
+    }
+
+    @PutMapping("/mensualidades/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public MensualidadDTO update(@RequestBody MensualidadDTO mensualidad,@PathVariable Long id){
+        MensualidadDTO menActual = mensualidadService.findById(id);
+
+        //  Long id, String titular_id, Long cobrador_id, Long plan_id, Long forma_id, Date fecha_pago,
+        //  float valor_pagar, int dias_mora, float saldo_pendiente
+        menActual.setFecha_pago(mensualidad.getFecha_pago());
+        menActual.setCobrador_id(mensualidad.getCobrador_id());
+        menActual.setDias_mora(mensualidad.getDias_mora());
+        menActual.setForma_id(mensualidad.getForma_id());
+        menActual.setSaldo_pendiente(mensualidad.getSaldo_pendiente());
+        menActual.setValor_pagar(mensualidad.getValor_pagar());
+        return mensualidadService.save(menActual);
+    }
+
+    @DeleteMapping("/mensualidades/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@RequestBody Long id){
+    public void delete(@PathVariable Long id){
         mensualidadService.delete(id);
     }
 }
