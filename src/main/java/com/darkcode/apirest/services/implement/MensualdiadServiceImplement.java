@@ -144,7 +144,12 @@ public class MensualdiadServiceImplement implements IMensualidadService {
         List<PagosPendientes> listaDevuelta = new ArrayList<>();
 
         lista.forEach(item -> {
-            listaDevuelta.add(new PagosPendientes((String)item[0],(String)item[1],(Date)item[2],(float)item[3],(float)item[4]));
+            listaDevuelta.add(
+                    new PagosPendientes(
+                            (String)item[0],(String)item[1],(Date)item[2],
+                            (float)item[3],(float)item[4]
+                    )
+            );
         });
         return listaDevuelta;
     }
