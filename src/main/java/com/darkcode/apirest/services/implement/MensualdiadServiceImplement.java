@@ -1,5 +1,6 @@
 package com.darkcode.apirest.services.implement;
 
+import com.darkcode.apirest.DTO.EstadoCambiado;
 import com.darkcode.apirest.DTO.MensualidadDTO;
 import com.darkcode.apirest.DTO.PagosPendientes;
 import com.darkcode.apirest.models.DAO.*;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -129,25 +131,43 @@ public class MensualdiadServiceImplement implements IMensualidadService {
     @Transactional
     public List<PagosPendientes> SP_MENSUALIDAD_PENDIENTES(Date fecha_inicio, Date fecha_fin, Date fecha_actual) {
         List<Object[]> lista = mensualidadDao.SP_MENSUALIDAD_PENDIENTES(fecha_inicio,fecha_fin,fecha_actual);
-        List<PagosPendientes> listaDevuelta = new ArrayList<>();
-
-        lista.forEach(item -> {
-            listaDevuelta.add(new PagosPendientes((String)item[0],(String)item[1],(Date)item[2],(float)item[3],(float)item[4]));
-        });
-        return listaDevuelta;
+        return getPagosPendientes(lista);
     }
 
     @Override
     @Transactional
     public List<PagosPendientes> SP_MENSUALIDAD_ATRASADOS() {
         List<Object[]> lista = mensualidadDao.SP_MENSUALIDAD_ATRASADOS();
+        return getPagosPendientes(lista);
+    }
+
+    @Override
+    @Transactional
+    public List<PagosPendientes> SP_MENSUALIDAD_CANCELADOS(Date fecha_inicio, Date fecha_fin) {
+        List<Object[]> lista = mensualidadDao.SP_MENSUALIDAD_CANCELADOS(fecha_inicio,fecha_fin);
+        return getPagosPendientes(lista);
+    }
+
+    @Override
+    @Transactional
+    public List<EstadoCambiado> SP_CAMBIAR_ESTADO_MENSUALIDAD(boolean estado, Long id) {
+        List<Object[]> lista = mensualidadDao.SP_CAMBIAR_ESTADO_MENSUALIDAD(estado,id);
+        List<EstadoCambiado> listaDevuelta = new ArrayList<>();
+        lista.forEach(item -> {
+            listaDevuelta.add(new EstadoCambiado((String)item[0],(String)item[1]));
+        });
+        return listaDevuelta;
+    }
+
+    //Metodo para evitar codigo duplicado
+    private List<PagosPendientes> getPagosPendientes(List<Object[]> lista) {
         List<PagosPendientes> listaDevuelta = new ArrayList<>();
 
         lista.forEach(item -> {
             listaDevuelta.add(
                     new PagosPendientes(
                             (String)item[0],(String)item[1],(Date)item[2],
-                            (float)item[3],(float)item[4]
+                            (float)item[3],(float)item[4],(BigInteger)item[5]
                     )
             );
         });

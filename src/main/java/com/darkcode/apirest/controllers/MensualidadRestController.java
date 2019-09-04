@@ -2,9 +2,7 @@ package com.darkcode.apirest.controllers;
 
 
 import com.darkcode.apirest.BackendExcellenceApplication;
-import com.darkcode.apirest.DTO.MensualidadDTO;
-import com.darkcode.apirest.DTO.Pago;
-import com.darkcode.apirest.DTO.PagosPendientes;
+import com.darkcode.apirest.DTO.*;
 import com.darkcode.apirest.models.entity.Mensualidad;
 import com.darkcode.apirest.services.services.IMensualidadService;
 import org.slf4j.Logger;
@@ -46,6 +44,20 @@ public class MensualidadRestController {
     public List<PagosPendientes> pendientes(@RequestBody Pago pago){
         log.info(pago.toString());
         return mensualidadService.SP_MENSUALIDAD_PENDIENTES(pago.getFecha_inicio(),pago.getFecha_fin(),pago.getFecha_actual());
+    }
+
+    @PostMapping("/mensualidades-canceladas")
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<PagosPendientes> canceladas(@RequestBody Pago pago){
+        log.info(pago.toString());
+        return mensualidadService.SP_MENSUALIDAD_CANCELADOS(pago.getFecha_inicio(),pago.getFecha_fin());
+    }
+
+    @PostMapping("/mensualidades-pagado")
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<EstadoCambiado> pagar_cancelar(@RequestBody EfectuarPago pago){
+        log.info(pago.toString());
+        return mensualidadService.SP_CAMBIAR_ESTADO_MENSUALIDAD(pago.isPagado(),pago.getId());
     }
 
     @GetMapping("/mensualidades-atrasados")

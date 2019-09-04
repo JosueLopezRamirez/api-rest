@@ -1,5 +1,6 @@
 package com.darkcode.apirest.DTO;
 
+import java.math.BigInteger;
 import java.util.Date;
 
 public class PagosPendientes {
@@ -9,6 +10,7 @@ public class PagosPendientes {
     private Date fecha_pago;
     private float valor_pagar;
     private float saldo_pendiente;
+    private BigInteger mensualidad_id;
 
     public String getId() {
         return id;
@@ -50,14 +52,23 @@ public class PagosPendientes {
         this.saldo_pendiente = saldo_pendiente;
     }
 
+    public BigInteger getMensualidad_id() {
+        return mensualidad_id;
+    }
+
+    public void setMensualidad_id(BigInteger mensualidad_id) {
+        this.mensualidad_id = mensualidad_id;
+    }
+
     public PagosPendientes(){}
 
-    public PagosPendientes(String id, String nombre, Date fecha_pago, float valor_pagar, float saldo_pendiente) {
+    public PagosPendientes(String id, String nombre, Date fecha_pago, float valor_pagar, float saldo_pendiente,BigInteger mensualidad_id) {
         this.id = id;
         this.nombre = nombre;
         this.fecha_pago = fecha_pago;
         this.valor_pagar = valor_pagar;
         this.saldo_pendiente = saldo_pendiente;
+        this.mensualidad_id = mensualidad_id;
     }
 
     @Override
@@ -68,6 +79,7 @@ public class PagosPendientes {
                 ", fecha_pago=" + fecha_pago +
                 ", valor_pagar=" + valor_pagar +
                 ", saldo_pendiente=" + saldo_pendiente +
+                ", mensualidad_id=" + mensualidad_id +
                 '}';
     }
 }
