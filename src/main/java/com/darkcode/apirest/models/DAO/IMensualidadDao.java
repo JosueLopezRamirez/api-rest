@@ -23,4 +23,7 @@ public interface IMensualidadDao extends CrudRepository<Mensualidad,Long> {
 
     @Query(value = "{CALL SP_MENSUALIDAD_CANCELADOS_TOTALES()}",nativeQuery = true)
     public List<Object[]> SP_MENSUALIDAD_CANCELADOS_TOTALES();
+
+    @Query(value = "{CALL SP_ESTADO_CUENTA(:id)}",nativeQuery = true)
+    public List<Object[]> SP_ESTADO_CUENTA(String id);
 }

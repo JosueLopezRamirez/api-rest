@@ -1,6 +1,7 @@
 package com.darkcode.apirest.services.implement;
 
 import com.darkcode.apirest.DTO.EstadoCambiado;
+import com.darkcode.apirest.DTO.EstadoCuenta;
 import com.darkcode.apirest.DTO.MensualidadDTO;
 import com.darkcode.apirest.DTO.PagosPendientes;
 import com.darkcode.apirest.models.DAO.*;
@@ -164,6 +165,15 @@ public class MensualdiadServiceImplement implements IMensualidadService {
     public List<PagosPendientes> SP_MENSUALIDAD_CANCELADOS_TOTALES() {
         List<Object[]> lista = mensualidadDao.SP_MENSUALIDAD_CANCELADOS_TOTALES();
         return getPagosPendientes(lista);
+    }
+
+    @Override
+    @Transactional
+    public List<EstadoCuenta> SP_ESTADO_CUENTA(String id) {
+        List<Object[]> lista = mensualidadDao.SP_ESTADO_CUENTA(id);
+        List<EstadoCuenta> listaDevuelta = new ArrayList<>();
+        lista.forEach(item -> listaDevuelta.add(new EstadoCuenta((String)item[0],(Date) item[1],(float)item[2],(float)item[3],(boolean)item[4],(BigInteger)item[5])));
+        return listaDevuelta;
     }
 
     //Metodo para evitar codigo duplicado

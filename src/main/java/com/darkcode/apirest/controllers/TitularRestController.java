@@ -2,6 +2,7 @@ package com.darkcode.apirest.controllers;
 
 import com.darkcode.apirest.BackendExcellenceApplication;
 import com.darkcode.apirest.DTO.DatosTitular;
+import com.darkcode.apirest.DTO.NombreTitular;
 import com.darkcode.apirest.models.entity.Titular;
 import com.darkcode.apirest.services.services.ITitularService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,11 @@ public class TitularRestController {
     @GetMapping("/titulares-datos")
     public List<DatosTitular> datosTitulares(){
         return titularService.SP_GET_DATOS_TITULARES();
+    }
+
+    @GetMapping("/titulares-nombres")
+    public List<NombreTitular> nombreTitulares(){
+        return titularService.SP_NOMBRE_COMPLETO_TITULAR();
     }
 
     @PostMapping("/titulares/{id}")

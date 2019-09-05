@@ -1,6 +1,7 @@
 package com.darkcode.apirest.services.services;
 
 import com.darkcode.apirest.DTO.EstadoCambiado;
+import com.darkcode.apirest.DTO.EstadoCuenta;
 import com.darkcode.apirest.DTO.MensualidadDTO;
 import com.darkcode.apirest.DTO.PagosPendientes;
 import com.darkcode.apirest.models.entity.*;
@@ -35,4 +36,6 @@ public interface IMensualidadService {
     public List<EstadoCambiado> SP_CAMBIAR_ESTADO_MENSUALIDAD(boolean estado, Long id);
 
     public List<PagosPendientes> SP_MENSUALIDAD_CANCELADOS_TOTALES();
+
+    public List<EstadoCuenta> SP_ESTADO_CUENTA(String id);
 }

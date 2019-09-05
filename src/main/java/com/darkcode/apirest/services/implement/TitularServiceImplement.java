@@ -1,6 +1,7 @@
 package com.darkcode.apirest.services.implement;
 
 import com.darkcode.apirest.DTO.DatosTitular;
+import com.darkcode.apirest.DTO.NombreTitular;
 import com.darkcode.apirest.models.DAO.IClienteDao;
 import com.darkcode.apirest.models.DAO.ITitularDao;
 import com.darkcode.apirest.models.entity.Cliente;
@@ -64,4 +65,15 @@ public class TitularServiceImplement implements ITitularService {
     @Override
     @Transactional
     public Cliente findClientById(Long id) { return clienteDao.findById(id).orElse(null); }
+
+    @Override
+    @Transactional
+    public List<NombreTitular> SP_NOMBRE_COMPLETO_TITULAR() {
+        List<Object[]> lista = titularDao.SP_NOMBRE_COMPLETO_TITULAR();
+        List<NombreTitular> listaDevuelta = new ArrayList<>();
+        lista.forEach(item -> {
+            listaDevuelta.add(new NombreTitular((String)item[0],(String)item[1]));
+        });
+        return listaDevuelta;
+    }
 }

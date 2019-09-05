@@ -60,6 +60,12 @@ public class MensualidadRestController {
         return mensualidadService.SP_CAMBIAR_ESTADO_MENSUALIDAD(pago.isPagado(),pago.getId());
     }
 
+    @PostMapping("/mensualidades-estado-cuenta/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<EstadoCuenta> pagar_cancelar(@PathVariable String id){
+        return mensualidadService.SP_ESTADO_CUENTA(id);
+    }
+
     @GetMapping("/mensualidades-atrasados")
     @ResponseStatus(HttpStatus.CREATED)
     public List<PagosPendientes> atrasados(){
