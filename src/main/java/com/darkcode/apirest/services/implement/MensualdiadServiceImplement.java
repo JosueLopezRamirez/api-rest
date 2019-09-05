@@ -159,6 +159,13 @@ public class MensualdiadServiceImplement implements IMensualidadService {
         return listaDevuelta;
     }
 
+    @Override
+    @Transactional
+    public List<PagosPendientes> SP_MENSUALIDAD_CANCELADOS_TOTALES() {
+        List<Object[]> lista = mensualidadDao.SP_MENSUALIDAD_CANCELADOS_TOTALES();
+        return getPagosPendientes(lista);
+    }
+
     //Metodo para evitar codigo duplicado
     private List<PagosPendientes> getPagosPendientes(List<Object[]> lista) {
         List<PagosPendientes> listaDevuelta = new ArrayList<>();

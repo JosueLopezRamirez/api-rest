@@ -66,13 +66,17 @@ public class MensualidadRestController {
         return mensualidadService.SP_MENSUALIDAD_ATRASADOS();
     }
 
+    @GetMapping("/mensualidades-totales")
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<PagosPendientes> totales(){
+        return mensualidadService.SP_MENSUALIDAD_CANCELADOS_TOTALES();
+    }
+
     @PutMapping("/mensualidades/{id}")
     @ResponseStatus(HttpStatus.CREATED)
     public MensualidadDTO update(@RequestBody MensualidadDTO mensualidad,@PathVariable Long id){
         MensualidadDTO menActual = mensualidadService.findById(id);
 
-        //  Long id, String titular_id, Long cobrador_id, Long plan_id, Long forma_id, Date fecha_pago,
-        //  float valor_pagar, int dias_mora, float saldo_pendiente
         menActual.setFecha_pago(mensualidad.getFecha_pago());
         menActual.setCobrador_id(mensualidad.getCobrador_id());
         menActual.setDias_mora(mensualidad.getDias_mora());

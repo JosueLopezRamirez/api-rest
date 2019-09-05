@@ -33,4 +33,6 @@ public interface IMensualidadService {
     public List<PagosPendientes> SP_MENSUALIDAD_CANCELADOS(Date fecha_inicio,Date fecha_fin);
 
     public List<EstadoCambiado> SP_CAMBIAR_ESTADO_MENSUALIDAD(boolean estado, Long id);
+
+    public List<PagosPendientes> SP_MENSUALIDAD_CANCELADOS_TOTALES();
 }
